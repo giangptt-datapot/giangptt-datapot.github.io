@@ -1,0 +1,301 @@
+{
+  "source_url": "https://datapot.vn/khoa-hoc/pl-300-microsoft-power-bi-data-analyst/",
+  "slug": "pl-300-microsoft-power-bi-data-analyst",
+  "title": "PL-300 – Microsoft Power BI Data Analyst",
+  "sections": [
+    {
+      "type": "p",
+      "text": "CERTIFICATE OF ACHIEVEMENT do Microsoft cấp, được công nhận trên toàn thế giới"
+    },
+    {
+      "type": "p",
+      "text": "6.000.000 ₫"
+    },
+    {
+      "type": "ul",
+      "text": "PL-300 – Microsoft Power BI Data Analyst\t\t\t\t\t\n\nThông tin bổ sung"
+    },
+    {
+      "type": "p",
+      "text": "Khóa học tiêu chuẩn của Microsoft cung cấp các phương pháp khác nhau và bài thực hành dựa trên các yêu cầu thực tế của Doanh nghiệp để lập mô hình, trực quan hóa và phân tích dữ liệu với Power BI. Khóa học cũng sẽ chỉ ra cách truy cập và xử lý dữ liệu từ nhiều nguồn dữ liệu, bao gồm cả dữ liệu quan hệ và không quan hệ."
+    },
+    {
+      "type": "p",
+      "text": "Học viên sẽ khám phá cách triển khai các tiêu chuẩn và chính sách bảo mật trên phổ Power BI bao gồm các tập dữ liệu và các nhóm. Khóa học Power BI này của Datapot đồng thời cung cấp kiến thức cách quản lý và triển khai các báo cáo (reports) và dashboards để chia sẻ và phân phối nội dung. Ngoài ra, khóa học sẽ chỉ ra cách xây dựng các báo cáo được phân trang (paginated reports) trong Power BI Service và xuất lên workspace."
+    },
+    {
+      "type": "h3",
+      "text": "ĐỐI TƯỢNG"
+    },
+    {
+      "type": "p",
+      "text": "Nhân sự trong nhiều lĩnh vực kinh doanh, hành chính, marketing, tài chính, kế toán, nhân sự, …\nCác chuyên gia phân tích mong muốn được nâng cao kỹ năng phân tích dữ liệu và xây dựng báo cáo trực quan\nNhân sự quản lý và chủ doanh nghiệp muốn biết cách đọc báo cáo Power BI để đưa ra các quyết định kinh doanh phù hợp\nSinh viên chuyên ngành Business Analytics, Data Analytics, Data Science mong muốn tiếp cận kiến thức theo hướng ứng dụng thực tế trong doanh nghiệp, người đi làm có nhu cầu chuyển đổi sang ngành phân tích dữ liệu."
+    },
+    {
+      "type": "h3",
+      "text": "ĐIỀU KIỆN TIÊN QUYẾT"
+    },
+    {
+      "type": "p",
+      "text": "Khóa học không yêu cầu điều kiện tiên quyết hay các kiến thức chuyên môn về lập trình"
+    },
+    {
+      "type": "h3",
+      "text": "KỸ NĂNG ĐẠT ĐƯỢC SAU KHÓA HỌC"
+    },
+    {
+      "type": "p",
+      "text": "Nhập, làm sạch và chuyển đổi dữ liệu\nMô hình hóa dữ liệu cho hiệu suất và khả năng mở rộng\nThiết kế và tạo báo cáo để phân tích dữ liệu\nÁp dụng và thực hiện phân tích báo cáo nâng cao\nQuản lý và chia sẻ nội dung báo cáo\nTạo báo cáo được phân trang trong Power BI\nChuẩn bị kiến thức và kỹ năng cần thiết để tham gia kỳ thi PL-300 lấy chứng chỉ Microsoft Certified: Power BI Data Analyst Associate"
+    },
+    {
+      "type": "p",
+      "text": "PL300-159, PL300-161, PL300-162, PL300-163, PL300-165, PL300-166"
+    },
+    {
+      "type": "h3",
+      "text": "Study program"
+    },
+    {
+      "type": "p",
+      "text": "Các vị trí quan trọng và các lựa chọn nghề nghiệp tiềm năng trong Ngành Dữ liệu.\nNhiệm vụ của một Data Analyst\nKhám phá khả năng của Power BI và làm quen với Môi trường làm việc của Power BI"
+    },
+    {
+      "type": "p",
+      "text": "Hiểu được toàn bộ luồng phân tích dữ liệu\nXác định và truy xuất dữ liệu từ các nguồn dữ liệu khác nhau\nGiải quyết lỗi nhập dữ liệu"
+    },
+    {
+      "type": "p",
+      "text": "Các nhiệm vụ thông thường của quá trình chuẩn bị dữ liệu (làm sạch, định hình lại dữ liệu, v.v.)\nLàm sạch dữ liệu trong Power BI bằng Power Query Editor\nData Profiling và khám phá Metadata của tập dữ liệu"
+    },
+    {
+      "type": "p",
+      "text": "Hiểu các khái niệm cơ bản về dimensional model\nTạo model relationships làm việc với các bảng trong Power BI\nTriển khai dimensions và hierarchies cho mô hình của bạn"
+    },
+    {
+      "type": "p",
+      "text": "Hiểu các khái niệm cơ bản về DAX\nSử dụng các mẫu DAX cơ bản để tính toán các biện pháp kinh doanh"
+    },
+    {
+      "type": "p",
+      "text": "Ôn lại các khái niệm cơ bản về DAX\nThực hành các mẫu DAX phức tạp theo từng trường hợp sử dụng trong kinh doanh"
+    },
+    {
+      "type": "p",
+      "text": "Tóm tắt các khái niệm quan trọng đã học trong 6 ngày trước đó.\nTối ưu hóa hiệu suất mô hình.\nBài kiểm tra giữa khóa"
+    },
+    {
+      "type": "p",
+      "text": "Giới thiệu các khái niệm và nguyên tắc cơ bản của trong việc thiết kế và xây dựng một báo cáo\nNâng cao khả năng truy cập và khả năng sử dụng của báo cáo bằng cách sử dụng tính năng trực quan hóa của Power BI"
+    },
+    {
+      "type": "p",
+      "text": "Giới thiệu các khái niệm và thực hành EDA (Exploratory Data Analysis) trong Power BI\nSử dụng Power BI AI visualization để thực hiện các phân tích nâng cao"
+    },
+    {
+      "type": "p",
+      "text": "Giới thiệu các tính năng của Power BI service\nTạo và cấu hình dashboard dựa trên các trường hợp sử dụng trong kinh doanh khác nhau\nTổ chức không gian làm việc (workspace) của Power BI service"
+    },
+    {
+      "type": "p",
+      "text": "Giới thiệu các khái niệm cơ bản về quản trị dữ liệu\nTìm hiểu cách cấu hình và quản lý tập dữ liệu trong Power BI Service\nTriển khai và định cấu hình bảo mật trong Power BI để đảm bảo an toàn cho tài sản của bạn"
+    },
+    {
+      "type": "p",
+      "text": "Tóm tắt khóa học PL-300, nêu bật các khái niệm và các phần thực hành quan trọng của Power BI\nTrao đổi, chia sẻ với Chuyên gia Microsoft về kinh nghiệm Phân tích dữ liệu và lời khuyên khi làm bài thi PL-300\nQ&A (Optional) – Lộ trình nghề nghiệp ngành Dữ liệu và các vị trí tiềm năng"
+    },
+    {
+      "type": "p",
+      "text": "“Mình học khóa DA-100 tại Datapot và thực sự đã học hỏi được rất nhiều trong khóa học, không chỉ về tool Power BI mà còn tinh thần nhiệt tình chia sẻ từ giảng viên. Ngoài nội dung chính theo chuẩn Microsoft, giảng viên đã chia sẻ nhiều case thực tế trong công việc khiến mình hào hứng với công việc của DA/BI hơn. Highly recommend Datapot.”"
+    },
+    {
+      "type": "p",
+      "text": "Học viên DA-100"
+    },
+    {
+      "type": "p",
+      "text": "“Thầy giáo và các bạn tại Datapot hỗ trợ rất nhiệt tình. Kiến thức rất tốt. Cấu trúc bài giảng trong khóa PL-300 hợp lý, phù hợp với các đối tượng. Tôi “happy”. Cảm ơn thầy giáo và team đã khai sáng Power BI cho tôi.”"
+    },
+    {
+      "type": "p",
+      "text": "Head of SFC & Investment Appraisal MIS & ALM, Finance & Planning Division -  Techcombank"
+    },
+    {
+      "type": "p",
+      "text": "“Highly recommend. Đội ngũ giảng viên của Datapot trẻ nhiệt huyết. Giáo trình và nội dung mình thấy khá vừa vặn, có thời gian học lý thuyết và thực hành. Mỗi buổi trong khóa Power BI mình học đều có case study thực hành lý thuyết vừa học cũng như course work cuối khóa. Nếu có điều kiện sẽ đi học tiếp ạ.”"
+    },
+    {
+      "type": "p",
+      "text": "Data Analyst - MB Securities"
+    },
+    {
+      "type": "p",
+      "text": "“Khóa học này của Datapot rất hữu ích, có nhiều điểm thú vị trong quá trình nghe giảng và làm bài tập, giảng viên tận tụy, giáo trình đầy đủ và hấp dẫn. Vote 5/5.”"
+    },
+    {
+      "type": "p",
+      "text": "Consultant - VNPAY"
+    },
+    {
+      "type": "p",
+      "text": "“Khóa học Data Analytics Foundation có kiến thức phù hợp với mức cơ bản, cho người mới bắt đầu. Giảng viên tại Datapot cũng luôn chuẩn bị bài giảng kỹ càng, luôn sẵn sàng trả lời câu hỏi.”"
+    },
+    {
+      "type": "p",
+      "text": "Tốt nghiệp Đại học Kinh tế - Tài chính TP Hồ Chí Minh"
+    },
+    {
+      "type": "p",
+      "text": "“Khóa học rất hữu ích, lượng kiến thức của thầy cô rất thực tế và luôn cố gắng lắng nghe feedback của học viên để điều chỉnh bài dạy phù hợp hơn. Mình rất thích khóa học và highly recommend.”"
+    },
+    {
+      "type": "p",
+      "text": "Học viên"
+    },
+    {
+      "type": "p",
+      "text": "“Cô giáo dạy rất nhiệt tình, hỗ trợ tận răng. Học xong có cảm giác như đi đánh nhau có thêm đồng bọn. Hỗ trợ trong công việc rất nhiều. Cảm ơn cô giáo và Datapot nhiều nhé.”"
+    },
+    {
+      "type": "p",
+      "text": "Toyota Motor Vietnam"
+    },
+    {
+      "type": "p",
+      "text": "“Giáo viên nhiệt tình, tỉ mỉ và vô cùng kiên nhẫn giải đáp 1001 thắc mắc của học viên. Datapot là điểm tựa cho học viên, khi gặp road blocks trong công việc thì luôn có thể quay về, tìm solutions, không chỉ technique mà còn cả định hướng công việc.”"
+    },
+    {
+      "type": "p",
+      "text": "Deloitte"
+    },
+    {
+      "type": "p",
+      "text": "“Sau khi học xong khóa học Python, em thấy tư duy về lập trình của em đã được mở rộng hơn Thực sự cho tới hết năm 2 ở Đại học em dường như không có kiến thức về lập trình và rất sợ lập trình trong khi chuyên ngành học của em lại thiên về hướng đó, cho nên em tìm đến Datapot và em đã không hối hận.\nAnh Việt giảng rất dễ hiểu giúp em suy nghĩ logic hơn khi viết code, bài tập cũng rất đa dạng khiến cho em phải tư duy nhiều hướng khác nhau. Trải qua 10 buổi học em đã vượt qua nỗi sợ của mình và đã trở nên yêu thích nó.”"
+    },
+    {
+      "type": "p",
+      "text": "Fintech – Đại Học Kinh Tế – Luật (ĐH Quốc Gia Tp.HCM )"
+    },
+    {
+      "type": "p",
+      "text": "Em được biết Datapot đã có kinh nghiệm đào tạo và làm việc với các doanh nghiệp lớn nên đã tin tưởng và theo học khoá học tại đây. Thực sự là như kỳ vọng của em, giáo trình được xây dựng rất hay, chuẩn theo Microsoft nên cực kỳ uy tín, giảng viên là người dày dặn kinh nghiệm nên truyền tải bài giảng cũng rất thu hút luôn ạ."
+    },
+    {
+      "type": "p",
+      "text": "datapot"
+    },
+    {
+      "type": "p",
+      "text": "Khoá học rất hiệu quả. Mặc dù mình đã tìm hiểu về SQL trước nhưng khi học vẫn nhận được rất nhiều điều hay ho. Chị Chi dạy cũng rất tâm huyết và phù hợp với mạch tư duy nên bài giảng dễ hiểu. Mong chị Chi sẽ dạy cả SQL nâng cao."
+    },
+    {
+      "type": "p",
+      "text": "Khóa học tại Datapot được thầy Quân giảng dạy mặc dù là online nhưng cực kỳ chi tiết, nhờ có video nên học viên có thể tua đi tua lại cũng như thực hành lại bài tập để nâng cao kiến thức, bên cạnh đó giảng viên cô Trinh cũng rất có tâm, em góp ý là cô nên đầu tư mic lớn hơn chút vì cô nói hơi bé ý ạ, về phần bài tập về nhà em mong Trung tâm có thể chia bài tập ra thành các task bé và hạn nộp assigns sẽ là lần lượt các task bé đó thay vì gộp lại thành 1 task lớn để các bạn học viên có thể follow theo kịp ( vì lịch học buổi tối có thể kéo dài đến muộn và ban ngày thì đa phần mọi ng đều đi làm ạ), tăng số lượng buổi và bài tập thực hành phần dax lên thì càng tốt."
+    },
+    {
+      "type": "p",
+      "text": "Mình đã phân vân rất nhiều để lựa chọn 1 trung tâm uy tín để bắt đầu ngành dữ liệu. Sau quá trình tìm hiểu kĩ càng, mình đã tin tưởng chọn Datapot và hoàn toàn cảm thấy đúng đắn khi lựa chọn Datapot là nơi khởi đầu . Cảm ơn thầy Cường, thầy Hoàng, thầy Quân, thầy Việt cùng toàn thể đội ngũ Datapot đã cùng mình đồng hành chinh phục con đường mới này ạ ❤"
+    },
+    {
+      "type": "p",
+      "text": "Lecturer"
+    },
+    {
+      "type": "ul",
+      "text": "MR. TÔ MẠNH HOÀNGMR. HỒ BÁ CƯỜNGMR. LÊ PHẠM ANH QUÂNMR. LÊ MINH TRÍMS. VŨ THỊ LỆ THUMS. NGUYỄN THỊ LỆ TRINHMR. VŨ TRỌNG QUANGMS. TRỊNH QUỲNH CHIMS. NGUYỄN HOÀNG MAI"
+    },
+    {
+      "type": "h3",
+      "text": "Related course"
+    },
+    {
+      "type": "p",
+      "text": "BAED – Digital Business Analyst Skills"
+    },
+    {
+      "type": "p",
+      "text": "DAFP – Data Analytics Foundation Plus"
+    },
+    {
+      "type": "p",
+      "text": "ASQL – Advanced Query with T-SQL"
+    },
+    {
+      "type": "p",
+      "text": "BOPA – Optimize Business Process using Power Apps, Power Automate & Power BI"
+    },
+    {
+      "type": "p",
+      "text": "PYDA – Python for Data Analytics"
+    },
+    {
+      "type": "p",
+      "text": "DP-900 – Microsoft Azure Data Fundamentals"
+    },
+    {
+      "type": "p",
+      "text": "EXDA – Excel for Data Analytics"
+    },
+    {
+      "type": "p",
+      "text": "CRDA – Data Analytics Preparation"
+    },
+    {
+      "type": "p",
+      "text": "BISQL – Combo Power BI & SQL"
+    }
+  ],
+  "images": [
+    "./pl300_files/Logo-Datapot-transparent-1024x336.png.webp",
+    "./pl300_files/1-2-350x197.jpg",
+    "./pl300_files/logo-2-1.png",
+    "./pl300_files/Thumbnail-fb-khoa-hoc-300x169.png",
+    "./pl300_files/a-screenshot-of-a-computer-ai-generated-content-m-2-300x212.png",
+    "./pl300_files/Thumbnail-Le-Quynh-Nhu-300x169.png",
+    "./pl300_files/Thumbnail-Do-Thi-Thuy-Hang-300x169.png",
+    "./pl300_files/Thumbnail-Yen-Quynh-300x169.png",
+    "./pl300_files/Thumbnail-Nguyen-My-Linh-300x169.png",
+    "./pl300_files/Thumbnail-Xuan-Mai-Mai-Tram-300x169.png",
+    "./pl300_files/Thumbnail-project-hoc-vien-moi-1-300x169.png",
+    "./pl300_files/Thumbnail-project-hoc-vien-moi-300x169.png",
+    "./pl300_files/Thumbnail-Vo-Luu-Lan-Vi-300x169.png",
+    "./pl300_files/testimonial-3-120x120-1.jpg",
+    "./pl300_files/Review-DA-100-3.jpg",
+    "./pl300_files/tran-thu-huong.jpg",
+    "./pl300_files/Hoang-nguyen.jpg",
+    "./pl300_files/feedback-hoc-vien-khoa-daf-2.jpg",
+    "./pl300_files/Tran-Minh-Anh.jpg",
+    "./pl300_files/Khuc-truong-an.jpg",
+    "./pl300_files/Thao-Le.jpg",
+    "./pl300_files/testimonial-4-120x120-1.jpg",
+    "./pl300_files/302493089_3201070823442961_7990602444973805079_n.jpg.webp",
+    "./pl300_files/Nguyen-Dinh-Trung_PL30069.jpg",
+    "./pl300_files/324587353_1549757675541867_6548783711666438865_n.jpg.webp",
+    "./pl300_files/Cao-Thuy-Dung_PL30065.jpg.webp",
+    "./pl300_files/20230406_115539-1-scaled-e1710473431641-150x150.jpg",
+    "./pl300_files/MicrosoftTeams-image-4-1-e1702883300187-150x150.jpg",
+    "./pl300_files/Anh-Quan-e1689156389253-150x150.jpg",
+    "./pl300_files/Ava_Le-Minh-Tri-scaled-e1702457515677-150x150.jpg",
+    "./pl300_files/chi-Thu-scaled-e1703062347951-150x150.jpg",
+    "./pl300_files/Image-6-1-150x150.png",
+    "./pl300_files/MicrosoftTeams-image-3-–-Da-sua-nen-150x150.jpg",
+    "./pl300_files/DSC08478-1-150x150.jpg",
+    "./pl300_files/MicrosoftTeams-image-11-e1702882400974-150x150.jpg",
+    "./pl300_files/9-350x197.png",
+    "./pl300_files/17-350x197.jpg",
+    "./pl300_files/COVER-COURSE-1-1-350x197.png",
+    "./pl300_files/BOPA-350x197.png",
+    "./pl300_files/COVER-COURSE-1-350x197.png",
+    "./pl300_files/3-1-350x197.jpg",
+    "./pl300_files/14-350x197.png",
+    "./pl300_files/13-350x197.png",
+    "./pl300_files/22-350x197.jpg",
+    "./pl300_files/icon-footer-fb.png",
+    "./pl300_files/icon-footer-yt.png",
+    "./pl300_files/icon-footer-linkedin.png",
+    "./pl300_files/group-6.png",
+    "./pl300_files/icon-footer-Microsoft.png",
+    "./pl300_files/dmca_protected_sml_120n.png",
+    "./pl300_files/zalo.png",
+    "./pl300_files/phone.png"
+  ]
+}

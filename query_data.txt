@@ -1,0 +1,28 @@
+CREATE PROCEDURE mstr.usp_QueryData
+    @query_table NVARCHAR(255),
+    @query_filter NVARCHAR(MAX) = NULL,
+    @query_search NVARCHAR(MAX) = NULL,
+    @query_sort NVARCHAR(500)   = NULL
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Ensure table name is sanitized (if necessary, validate against an allowed list of table names)
+    IF OBJECT_ID(@query_table, 'U') IS NULL AND OBJECT_ID(@query_table, 'V') IS NULL
+    BEGIN
+        RAISERROR('Invalid table or view name.', 16, 1);
+        RETURN;
+    END
+
+    -- Build the dynamic SQL query
+    DECLARE @query NVARCHAR(MAX);
+    SET @query = N'SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED; ' +
+                 N'SELECT * FROM ' + @query_table + CHAR(10) +
+                 ISNULL(@query_filter, '') + CHAR(10) +
+                 ISNULL(@query_search, '') + CHAR(10) +
+                 ISNULL(@query_sort, '');
+
+    EXEC(@query);
+END
+go
+

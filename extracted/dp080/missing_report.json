@@ -1,0 +1,66 @@
+{
+  "coverage": 100,
+  "coveragePercentage": "100.00%",
+  "totalSourceHeadings": 0,
+  "headingTypes": {
+    "h2": 0,
+    "h3": 0,
+    "inferred": 0
+  },
+  "matchedHeadings": 0,
+  "missingHeadings": [],
+  "missingCount": 0,
+  "canonicalSections": {
+    "audience": false,
+    "prerequisites": false,
+    "outcomes": false,
+    "curriculum": false
+  },
+  "canonicalPresent": 0,
+  "courseProvider": "microsoft",
+  "credential": {
+    "type": "certification",
+    "issuer": "microsoft",
+    "codes": [
+      "DP080"
+    ],
+    "confidence": 1
+  },
+  "msConfidence": 1,
+  "providerEvidence": [
+    {
+      "signal": "exam_code_in_title",
+      "value": [
+        "DP080"
+      ],
+      "weight": 0.45
+    },
+    {
+      "signal": "exam_code_is_product_code",
+      "value": "DP080",
+      "weight": 0.35
+    },
+    {
+      "signal": "ms_badge_element",
+      "value": "CERTIFICATE OF ACHIEVEMENT do Microsoft cấp",
+      "weight": 0.4
+    },
+    {
+      "signal": "ms_certified_in_main",
+      "value": "Microsoft Certified found in main content",
+      "weight": 0.3
+    },
+    {
+      "signal": "ms_learn_in_main",
+      "value": "Microsoft Learn found in main content",
+      "weight": 0.15
+    }
+  ],
+  "passesQA": false,
+  "qualityWarnings": [
+    "Missing canonical sections: only 0/4 detected",
+    "No proper h2/h3 headings found, relied entirely on inference",
+    "Duration not detected on page — set via catalog override"
+  ],
+  "timestamp": "2026-02-04T06:08:40.781Z"
+}

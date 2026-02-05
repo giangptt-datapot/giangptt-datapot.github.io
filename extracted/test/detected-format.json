@@ -1,0 +1,13 @@
+{
+  "detectedFormats": {
+    "hasProductGallery": false,
+    "hasWooGallery": false,
+    "hasElementor": false,
+    "hasWooTabs": false,
+    "hasEntryContent": false
+  },
+  "coverSelector": "none",
+  "bodySelector": "none",
+  "candidateImages": [],
+  "extractionTimestamp": "2026-02-04T06:08:40.839Z"
+}

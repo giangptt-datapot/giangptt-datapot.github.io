@@ -1,0 +1,33 @@
+{
+  "coverage": 100,
+  "coveragePercentage": "100.00%",
+  "totalSourceHeadings": 0,
+  "headingTypes": {
+    "h2": 0,
+    "h3": 0,
+    "inferred": 0
+  },
+  "matchedHeadings": 0,
+  "missingHeadings": [],
+  "missingCount": 0,
+  "canonicalSections": {
+    "audience": false,
+    "prerequisites": false,
+    "outcomes": false,
+    "curriculum": false
+  },
+  "canonicalPresent": 0,
+  "courseProvider": "datapot",
+  "credential": null,
+  "msConfidence": 0,
+  "providerEvidence": [],
+  "passesQA": false,
+  "qualityWarnings": [
+    "Missing canonical sections: only 0/4 detected",
+    "No proper h2/h3 headings found, relied entirely on inference",
+    "No credential detected — set via catalog override if applicable",
+    "Duration not detected on page — set via catalog override",
+    "No badge/certificate text found on page"
+  ],
+  "timestamp": "2026-02-04T06:08:40.753Z"
+}

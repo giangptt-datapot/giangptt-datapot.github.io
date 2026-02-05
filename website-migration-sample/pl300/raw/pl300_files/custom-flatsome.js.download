@@ -1,0 +1,40 @@
+(function ($) {
+    "use strict";
+    var sidebar_pro_fix = function(){
+        // Fix sidebar.
+        if ( $( '.sidebar-pro-fix' ).length > 0 ) {
+            var window_width = jQuery(window).width();
+            var header = jQuery('header').height();
+            var footer = jQuery('footer').height() + 30;
+            if (window_width > 849) {
+                // Fix home sidebar.
+                jQuery.lockfixed(".sidebar-pro-fix", {offset: {top: header, bottom: footer}});
+            }
+        }
+    }
+    var showContentFaqs  = function () {
+        if ($('.dnw-faq').length) {
+            $('.dnw-faq .faq-title').on('click', function () {
+
+                if($(this).parent('.dnw-faq').hasClass('active')){
+                    $(this).parent('.dnw-faq').removeClass('active');
+                    $(this).parent('.dnw-faq').find('.faq-text').slideUp( "slow" );
+                }else{
+                    $('.dnw-faq').removeClass('active');
+                    $('.dnw-faq').find('.faq-text').slideUp( "slow" );
+
+                    $(this).parent('.dnw-faq').addClass('active');
+                    $(this).parent('.dnw-faq').find('.faq-text').slideDown( "slow" );
+                }
+                return false;
+            });
+        }
+    };
+    jQuery(document).ready(function ($) {
+        sidebar_pro_fix();
+        showContentFaqs();
+    });
+    jQuery(window).resize(function ($) {
+        sidebar_pro_fix();
+    });
+})(jQuery);

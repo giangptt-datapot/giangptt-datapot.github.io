@@ -1,0 +1,569 @@
+UpdateContext(
+    {
+        var_submitted_datetime: Now(), 
+        var_user: User().EntraObjectId, 
+        var_vsb_spinner_running: true
+    }
+);
+
+
+If(
+    var_alert <> "OK",
+    // If not pass conditions => Alert
+        UpdateContext({var_visible_popup_alert: true})
+    ,
+    // If pass conditions => Run
+    With(
+        {
+            _new_order_type: "PERS", 
+            _new_order_status: "HOLD", 
+            _new_approval_status: "WAIT"
+
+        },
+
+    // Patch Order Block
+        With(
+            {
+                new_order:
+                    Patch(
+                        'sales.Order', Defaults('sales.Order'),
+                        {
+                            order_type: _new_order_type,
+                            sub_total: Value(txin_1704_subtotal_1.Text),
+                            discount_total: Coalesce(Value(txin_1704_discount_1.Text), 0),
+                            total: Value(txin_1704_total_1.Text),
+                            rest_total: Value(txin_1704_total_1.Text),
+                            paid_total: 0,
+                            order_status: _new_order_status,
+                            org: If(tog_15_org_order.Value = true, Coalesce(Trim(txin_15_new_org.Text), "Doanh nghiệp")),
+                            created_datetime: var_submitted_datetime,
+                            updated_datetime: var_submitted_datetime,
+                            created_by: var_user,
+                            updated_by: var_user, 
+                            is_deleted: false
+                        }
+                    ),
+                order_pers_property: [
+                    {
+                        pp_relation: "sales",
+                        value: cb_15_sales.Selected.nametag,
+                        pp_relation_group: "Staff",
+                        order_pp: true,
+                        lead_pp: true
+                    },
+                    {
+                        pp_relation: "sales_manager",
+                        value: cb_15_sales_mng.Selected.nametag,
+                        pp_relation_group: "Staff",
+                        order_pp: true,
+                        lead_pp: true
+                    },
+                    {
+                        pp_relation: "marketer",
+                        value: cb_15_mkt.Selected.nametag,
+                        pp_relation_group: "Staff",
+                        order_pp: true,
+                        lead_pp: true
+                    },
+                    {
+                        pp_relation: "mkt_manager",
+                        value: cb_15_mkt_mng.Selected.nametag,
+                        pp_relation_group: "Staff",
+                        order_pp: true,
+                        lead_pp: true
+                    },
+                    {
+                        pp_relation: "source_id",
+                        value: Trim(txin_15_source.Text),
+                        pp_relation_group: "Lead_Source",
+                        order_pp: true,
+                        lead_pp: true
+                    },
+                    {
+                        pp_relation: "source_group_id",
+                        value: cb_15_source_gr.Selected.source_group_id,
+                        pp_relation_group: "Lead_Source",
+                        order_pp: true,
+                        lead_pp: true
+                    },
+                    {
+                        pp_relation: "has_order_email",
+                        value: If(tog_1604_send_order_email.Value = true, "Yes", "No"),
+                        pp_relation_group: "Extra_Property",
+                        order_pp: true,
+                        lead_pp: false
+                    },
+                    {
+                        pp_relation: "is_org_order",
+                        value: If(tog_15_org_order.Value = true, "Yes", "No"),
+                        pp_relation_group: "Extra_Property",
+                        order_pp: true,
+                        lead_pp: false
+                    },
+                    {
+                        pp_relation: "has_main_cust_joined",
+                        value: "Yes",
+                        pp_relation_group: "Extra_Property",
+                        order_pp: true,
+                        lead_pp: false
+                    },
+                    {
+                        pp_relation: "promo_id",
+                        value:cb_16_promo_camp.Selected.camp_code,
+                        pp_relation_group: "Order_Promo",
+                        order_pp: true,
+                        lead_pp: false
+                    },
+                    {
+                        pp_relation: "promo_value",
+                        value: Text(cb_16_promo_camp.Selected.cost_price),
+                        pp_relation_group: "Order_Promo",
+                        order_pp: true,
+                        lead_pp: false
+                    },
+                    {
+                        pp_relation: "level",
+                        value: "L6",
+                        pp_relation_group: "Lead_Level",
+                        order_pp: false,
+                        lead_pp: true
+                    },
+                    {
+                        pp_relation: "care_status",
+                        value: "Đang chăm sóc",
+                        pp_relation_group: "Lead_Status",
+                        order_pp: false,
+                        lead_pp: true
+                    },
+                ]
+            }
+            ,
+
+            Patch( 
+                'sales.Order',
+                {dp_order_id: new_order.dp_order_id},
+                {
+                    dp_order_code: "DP" & new_order.dp_order_id 
+                }
+            );
+            // Patch Payment
+            ForAll(
+                col_payment,
+                Patch(
+                    'sales.Payment', Defaults('sales.Payment'),
+                    {
+                        dp_order_id: new_order.dp_order_id,
+                        payment_count: Value(col_payment[@payment_count]),
+                        payment_method: "Chuyen khoan VietQR",
+                        planned_amount: Value(col_payment[@planned_amount]),
+                        actual_amount: 0,
+                        rest_amount: Value(col_payment[@planned_amount]),
+                        balance: 0,
+                        status: _new_order_status,
+                        due_date: DateValue(col_payment[@due_date]),
+                        created_datetime: var_submitted_datetime,
+                        updated_datetime: var_submitted_datetime,
+                        created_by: var_user,
+                        updated_by: var_user, 
+                        is_deleted: false
+                    }
+                )
+            );
+
+            Clear(col_sub_order_list);
+
+            // Create new Order in DB
+            ForAll(
+                col_sub_order,
+                With(
+                    {
+                        // Patch 'sales.Customer'
+
+                        new_customer:
+                            If( 
+                                ! IsBlank( col_sub_order[@customer_id] ), 
+
+                                Patch( 
+                                    'sales.Customer', 
+                                    { customer_id: col_sub_order[@customer_id] }, 
+                                    {
+                                        full_name: col_sub_order[@customer_fullname],
+                                        customer_email: col_sub_order[@customer_email],
+                                        customer_phone: col_sub_order[@customer_phone],
+                                        org: Coalesce(Trim(txin_15_new_org.Text), col_sub_order[@customer_organization]),
+                                        student_id: col_sub_order[@student_id],
+                                        created_datetime: var_submitted_datetime,
+                                        updated_datetime: var_submitted_datetime,
+                                        created_by: var_user,
+                                        updated_by: var_user, 
+                                        is_deleted: false
+                                    }
+                                )
+                                , 
+
+                                Patch( 
+                                    'sales.Customer', 
+                                    Defaults('sales.Customer'), 
+                                    {
+                                        full_name: col_sub_order[@customer_fullname],
+                                        customer_email: col_sub_order[@customer_email],
+                                        customer_phone: col_sub_order[@customer_phone],
+                                        org: Coalesce(Trim(txin_15_new_org.Text), col_sub_order[@customer_organization]),
+                                        student_id: col_sub_order[@student_id],
+                                        created_datetime: var_submitted_datetime,
+                                        updated_datetime: var_submitted_datetime,
+                                        created_by: var_user,
+                                        updated_by: var_user, 
+                                        is_deleted: false
+                                    }
+                                )
+                            ),
+
+                        contacts: [
+                            {
+                                contact_value: col_sub_order[@customer_email],
+                                contact_type: "Email"
+                            },
+                            {
+                                contact_value: col_sub_order[@customer_phone],
+                                contact_type: "Phone"
+                            },
+                        ]
+                    },
+
+
+                // Check is parent lead id already exists or not (check if customer is totally new)
+                If(
+                    
+                    IsBlank(col_sub_order[@parent_lead_id])
+                    
+                    ,
+                    //If true (Blank) => Create a new lead
+                    // Start true
+                    With(
+                        {
+                            // Patch 1 new Lead and grab new_lead_id
+                            // Start
+                            new_lead:
+                            Patch(
+                                'crm.Lead',
+                                Defaults('crm.Lead'),
+                                {
+                                    lead_name: col_sub_order[@customer_fullname],
+                                    org: col_sub_order[@customer_organization],
+                                    created_datetime: var_submitted_datetime,
+                                    updated_datetime: var_submitted_datetime,
+                                    created_by: var_user,
+                                    updated_by: var_user, 
+                                    is_deleted: false
+                                }
+                            )
+                            // End
+                        },
+
+                        
+                        ForAll(
+                            Filter(order_pers_property, lead_pp = true),
+                            Patch(
+                                'crm.Lead_Property',
+                                Defaults('crm.Lead_Property'),
+                                {
+                                    lead_id: new_lead.lead_id,
+                                    pp_relation: pp_relation,
+                                    pp_relation_group: pp_relation_group,
+                                    value: value,
+                                    created_datetime: var_submitted_datetime,
+                                    updated_datetime: var_submitted_datetime,
+                                    created_by: var_user,
+                                    updated_by: var_user, 
+                                    is_deleted: false
+                                }
+                            )
+                        );
+
+                        
+                        // Patch Lead Mapping
+                        Patch(
+                            'crm.Lead_Mapping',
+                            Defaults('crm.Lead_Mapping'),
+                            {
+                                lead_id: new_lead.lead_id,
+                                parent_lead_id: new_lead.lead_id,
+                                created_datetime: var_submitted_datetime,
+                                updated_datetime: var_submitted_datetime,
+                                created_by: var_user,
+                                updated_by: var_user, 
+                                is_deleted: false
+                            }
+                        );
+                  
+                        // Patch Person Mapping
+                        Patch(
+                            'crm.Person_Mapping',
+                            Defaults('crm.Person_Mapping'),
+                            {
+                                lead_id: new_lead.lead_id, 
+                                customer_id: new_customer.customer_id,
+                                created_datetime: var_submitted_datetime,
+                                updated_datetime: var_submitted_datetime,
+                                created_by: var_user,
+                                updated_by: var_user, 
+                                is_deleted: false
+                                
+                            }
+                        );
+
+                        // Patch Contacts and Touchpoints
+                        With(
+                            {
+                                // Pacth 1 new lead touchpoint
+                                new_lead_touchpoint:
+                                    Patch(
+                                        'crm.Lead_Touchpoint',
+                                        Defaults('crm.Lead_Touchpoint'),
+                                        {
+                                            lead_id: new_lead.lead_id,
+                                            source_id: Trim(txin_15_source.Text),
+                                            source_group_id: cb_15_source_gr.Selected.source_group_id,
+                                            lead_level: "L6",
+                                            touched_datetime: var_submitted_datetime,
+                                            created_datetime: var_submitted_datetime,
+                                            updated_datetime: var_submitted_datetime,
+                                            created_by: var_user,
+                                            updated_by: var_user, 
+                                            is_deleted: false
+                                        }
+                                    )
+                            },
+
+
+                            ForAll(
+                                contacts,
+                                With(
+                                    {
+                                        new_contact:
+                                            Patch(
+                                                'crm.Contact',
+                                                Defaults('crm.Contact'),
+                                                {
+                                                    lead_id: new_lead.lead_id,
+                                                    contact_name: new_lead.lead_name,
+                                                    contact_value: contacts[@contact_value],
+                                                    contact_type: contacts[@contact_type],
+                                                    contact_status: "Active",
+                                                    is_primary_contact: 1,
+                                                    is_valid: 1,
+                                                    created_datetime: var_submitted_datetime,
+                                                    updated_datetime: var_submitted_datetime,
+                                                    created_by: var_user,
+                                                    updated_by: var_user, 
+                                                    is_deleted: false
+                                                }
+                                            )
+                                    },
+
+                                    Patch(
+                                        'crm.Contact_Touchpoint',
+                                        Defaults('crm.Contact_Touchpoint'),
+                                        {
+                                            lead_touchpoint_id: new_lead_touchpoint.lead_touchpoint_id,
+                                            lead_id: new_lead.lead_id,
+                                            contact_id: new_contact.contact_id,
+                                            contact_value: new_contact.contact_value,
+                                            created_datetime: var_submitted_datetime,
+                                            updated_datetime: var_submitted_datetime,
+                                            created_by: var_user,
+                                            updated_by: var_user, 
+                                            is_deleted: false
+                                        }
+                                    )
+                                )
+                            )
+                        );
+
+                        
+                        //'[Customer360App]CreateCallioLead'.Run(new_lead.lead_id)
+                    
+                    )// End true
+                    ,
+                    
+                    // Patch 'sales.Customer' Lead (Person Mapping)
+                    If(
+                        IsBlank(LookUp('crm.Person_Mapping', lead_id = col_sub_order[@parent_lead_id]))
+                        ,
+                        Patch(
+                            'crm.Person_Mapping',
+                            Defaults('crm.Person_Mapping'),
+                            {
+                                lead_id: col_sub_order[@parent_lead_id],
+                                customer_id: new_customer.customer_id,
+                                created_datetime: var_submitted_datetime,
+                                updated_datetime: var_submitted_datetime,
+                                created_by: var_user,
+                                updated_by: var_user, 
+                                is_deleted: false
+                            }
+                        )
+                    )          
+                )// Patch new lead End
+                ;
+
+
+                // Patch Sub_Order
+                    With(
+                        {
+                            new_sub_order:
+                                Patch(
+                                    'sales.Sub_Order', Defaults('sales.Sub_Order'),
+                                    {
+                                        dp_order_id: new_order.dp_order_id,
+                                        customer_id: new_customer.customer_id,
+                                        is_main_customer: col_sub_order[@index] = 1,
+                                        student_id: col_sub_order[@student_id],
+                                        sub_total: col_sub_order[@sub_total],
+                                        total: col_sub_order[@sub_total],
+                                        created_datetime: var_submitted_datetime,
+                                        updated_datetime: var_submitted_datetime,
+                                        created_by: var_user,
+                                        updated_by: var_user, 
+                                        is_deleted: false
+                                    }
+                                )
+                        },
+
+                        Collect(
+                            col_sub_order_list,
+                            {
+                                sub_order_id: new_sub_order.sub_order_id,
+                                customer_fullname: customer_fullname,
+                                list_class_buy:
+                                    Split(
+                                        col_sub_order[@list_class_buy],
+                                        ", "
+                                    )
+                            }
+                        )
+                    )
+                )
+            );
+
+            
+            //Patch Order Line Item
+            With(
+                {col_sub_order_ungroup:  Ungroup(col_sub_order_list, list_class_buy)},
+                ForAll(
+                    col_sub_order_ungroup,
+                    Patch(
+                        'sales.Order_Line', 
+                        Defaults('sales.Order_Line'),
+                        {
+                            sub_order_id: col_sub_order_ungroup[@sub_order_id],
+                            dp_order_id: new_order.dp_order_id,
+                            variation_id: Value(Last(FirstN(Split(col_sub_order_ungroup[@Value], "+"), 2)).Value),
+                            class_id: Value(First(Split(col_sub_order_ungroup[@Value], "+")).Value),
+                            learning_method: Last(Split(col_sub_order_ungroup[@Value], "+")).Value,
+                            approval_status: _new_approval_status,
+                            created_datetime: var_submitted_datetime,
+                            updated_datetime: var_submitted_datetime,
+                            created_by: var_user,
+                            updated_by: var_user, 
+                            is_deleted: false
+                        }
+                    )
+                )
+            );
+
+
+            ForAll(
+                Filter(order_pers_property, order_pp = true),
+                Patch(
+                    'sales.Order_Property',
+                    Defaults('sales.Order_Property'),
+                    {
+                        order_id: new_order.dp_order_id,
+                        pp_relation: pp_relation,
+                        pp_relation_group: pp_relation_group,
+                        value: value,
+                        created_datetime: var_submitted_datetime,
+                        updated_datetime: var_submitted_datetime,
+                        created_by: var_user,
+                        updated_by: var_user, 
+                        is_deleted: false
+                    }
+                )
+            );
+
+            With( 
+                { 
+                    _search_order_id: new_order.dp_order_id
+                }, 
+                UpdateContext(
+                    {
+                        var_order_email:
+                        JSON(
+                            GroupBy(
+                                ShowColumns(
+                                    Filter(
+                                        'sales.vw_Order_Tracking',
+                                        dp_order_id = _search_order_id
+                                    ),
+                                    sub_fullname, class_code
+                                ),
+                                sub_fullname, list_class
+                            )
+                        ),
+                        var_dp_order_id: new_order.dp_order_id,
+                        var_dp_order_code: "DP" & new_order.dp_order_id
+                    }
+                )
+            )
+        )
+    );
+
+    If(
+        tog_1604_send_order_email.Value = true,
+            'Orders01.01-Emailordervàpayment'.Run(
+                var_dp_order_id,
+                html_1704_order_details_1.HtmlText,
+                "DP" & var_dp_order_id,
+                Coalesce(If(IsBlank(txin_1704_promo_code_1.Text), "None", html_1704_promo_details_1.HtmlText), "None"),
+                Coalesce(If(IsBlank(txin_1704_promo_code_1.Text), "None", txin_1704_promo_code_1.Text), "None"),
+                Coalesce(If(IsBlank(txin_1704_promo_code_1.Text), "None", LookUp('sales.Promo_Campaign', camp_code = txin_1704_promo_code_1.Text, camp_name)), "None")
+            )
+        ,
+            'Orders01.02-Emailordervàpayment(salesonly)'.Run(
+                var_dp_order_id,
+                html_1704_order_details_1.HtmlText,
+                "DP" & var_dp_order_id
+            )
+    );
+
+    Clear(col_item);
+    Collect(
+        col_item,
+        {
+            index_item: 1
+        }
+    );
+
+    Clear(col_sub_customer);
+    Clear(col_sub_order);
+    Clear(col_payment);
+    Set(globvar_new_order, true);
+    Set(globvar_parent_lead, Blank());
+
+    UpdateContext(
+        {
+            var_order_type: "personal",
+            var_customer_type: "new",
+            var_vsb_popup_place_order: false,
+            var_vsb_spinner_running: false
+        }
+    );
+
+    Navigate(Scr_07_Place_Order_CustBill);
+
+    Notify("Đã đặt đơn hàng thành công. Email xác nhận đơn hàng và thông tin thanh toán sẽ được gửi tới khách hàng trong ít phút.", NotificationType.Success, 20000)
+)
+//End
+
