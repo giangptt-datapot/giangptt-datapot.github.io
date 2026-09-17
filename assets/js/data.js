@@ -291,7 +291,12 @@ export const education = {
   time: { vi: "09/2021 – 07/2025", en: "Sep 2021 – Jul 2025" },
   gpa: { vi: "3.66/4.0", en: "3.66/4.0" },
   coursework: [
-    { vi: "[Cập nhật danh sách môn học liên quan]", en: "[Update list of relevant coursework]" },
+    { vi: "Xác suất thống kê", en: "Probability & Statistics" },
+    { vi: "Cơ sở dữ liệu", en: "Database Systems" },
+    { vi: "Cấu trúc dữ liệu và giải thuật", en: "Data Structures & Algorithms" },
+    { vi: "Data Warehouse and Business Intelligence", en: "Data Warehouse and Business Intelligence" },
+    { vi: "Phân tích số liệu", en: "Data Analysis" },
+    { vi: "Toán kinh tế", en: "Mathematical Economics" },
   ],
   highlights: [
     {
