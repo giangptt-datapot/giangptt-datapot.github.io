@@ -651,6 +651,14 @@ a { color: inherit; }
 }
 .work-card a:hover { text-decoration: underline; }
 
+.work-card .work-meta {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--color-text-faint);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+}
+
 /* =========================================================
    Education
    ========================================================= */

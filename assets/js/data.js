@@ -9,12 +9,11 @@ export const profile = {
   initials: "PTG",
   role: { vi: "Business Analyst", en: "Business Analyst" },
   company: "Datapot",
-  // Set to a real image path (e.g. "assets/img/portrait.jpg") once available.
-  portraitUrl: null,
-  email: null, // "[Cập nhật email liên hệ]" — set to a real address to enable the contact link
-  linkedin: null, // set to a real LinkedIn URL to enable the link
+  portraitUrl: "assets/img/portrait.jpg",
+  email: "thuygiang0902.nb@gmail.com",
+  linkedin: "https://linkedin.com/in/thuygiang0902",
   github: "https://github.com/giangptt-datapot",
-  cvUrl: null, // set to a real CV file path to enable the download button
+  cvUrl: "assets/cv/CV-Pham-Thi-Thuy-Giang.pdf",
 };
 
 export const highlights = [
@@ -43,9 +42,20 @@ export const highlightNote = {
 
 export const journey = [
   {
-    time: { vi: "[Cập nhật thời gian]", en: "[Update dates]" },
-    title: { vi: "[Cập nhật ngành học] · [Cập nhật tên trường]", en: "[Update major] · [Update university]" },
-    desc: { vi: "[Cập nhật mô tả giai đoạn đại học]", en: "[Update description of university years]" },
+    time: { vi: "09/2021 – 07/2025", en: "Sep 2021 – Jul 2025" },
+    title: { vi: "Hệ thống thông tin quản lý · Đại học Bách khoa Hà Nội", en: "Management Information Systems · Hanoi University of Science and Technology" },
+    desc: {
+      vi: "Học Hệ thống thông tin quản lý tại Khoa Toán Tin; tham gia Tổ Hỗ trợ triển khai Hệ thống iCTSV và giữ vai trò Trưởng mảng Truyền thông.",
+      en: "Studied Management Information Systems at the School of Applied Mathematics & Informatics; part of the iCTSV system rollout team and led its Communications division.",
+    },
+  },
+  {
+    time: { vi: "01/2024 – 06/2025", en: "Jan 2024 – Jun 2025" },
+    title: { vi: "Business Analyst / Data Analyst — dự án doanh nghiệp", en: "Business Analyst / Data Analyst — enterprise projects" },
+    desc: {
+      vi: "Phân tích nghiệp vụ và dữ liệu cho các dự án ERP và hệ thống quản trị tài chính, cùng một dự án phân tích dữ liệu chứng khoán cá nhân.",
+      en: "Business and data analysis for ERP and financial-management projects, alongside a personal stock-data analysis project.",
+    },
   },
   {
     time: { vi: "02/2026 – hiện tại", en: "Feb 2026 – present" },
@@ -90,6 +100,7 @@ export const expertise = [
     items: [
       { vi: "SQL cho phân tích dữ liệu", en: "SQL for data analysis" },
       { vi: "Power BI / Microsoft Fabric (Direct Lake, PBIP)", en: "Power BI / Microsoft Fabric (Direct Lake, PBIP)" },
+      { vi: "Python (pandas) để làm sạch & xử lý dữ liệu", en: "Python (pandas) for data cleaning & processing" },
       { vi: "Thiết kế & tối ưu index cho truy vấn (CRM lead-pool)", en: "Query and index design (CRM lead-pool)" },
       { vi: "Ra quyết định dựa trên dữ liệu", en: "Data-driven decision making" },
     ],
@@ -185,6 +196,69 @@ export const projects = [
     ],
     hasDetailPage: true,
   },
+  {
+    slug: null,
+    kicker: { vi: "Dự án doanh nghiệp · ERP", en: "Enterprise project · ERP" },
+    name: { vi: "Xây dựng hệ thống ERP cho công ty thời trang HX", en: "ERP system for fashion company HX" },
+    company: "HX",
+    time: { vi: "01/2025 – 06/2025", en: "Jan 2025 – Jun 2025" },
+    role: { vi: "Business Analyst, Data Analyst", en: "Business Analyst, Data Analyst" },
+    summary: {
+      vi: "Phân tích yêu cầu và điều phối chuyển đổi dữ liệu cho một hệ thống ERP mới, tập trung vào phân hệ Tài chính – Sản phẩm.",
+      en: "Requirements analysis and data-migration coordination for a new ERP system, focused on the Finance – Product modules.",
+    },
+    problem: {
+      vi: "Quy trình giữa các phòng Kế toán, Bán hàng và Kho vận còn rời rạc; doanh nghiệp cần một hệ thống ERP hợp nhất thay thế hệ thống cũ.",
+      en: "Processes across Accounting, Sales and Warehouse were disconnected; the company needed a unified ERP system to replace the old one.",
+    },
+    myRole: {
+      vi: "Khảo sát và thu thập yêu cầu người dùng, phân tích quy trình nghiệp vụ hiện tại và đề xuất cải tiến cho phân hệ Tài chính – Sản phẩm.",
+      en: "Gathered user requirements, analyzed current business processes, and proposed improvements for the Finance – Product modules.",
+    },
+    whatIDid: [
+      { vi: "Khảo sát, thu thập yêu cầu người dùng từ các phòng Kế toán, Bán hàng và Kho vận", en: "Surveyed and gathered user requirements from Accounting, Sales and Warehouse" },
+      { vi: "Phân tích quy trình nghiệp vụ hiện tại, xác định điểm nghẽn và đề xuất cải tiến cho phân hệ Tài chính – Sản phẩm", en: "Analyzed current business processes, identified bottlenecks, and proposed improvements for the Finance – Product modules" },
+      { vi: "Thực hiện ETL dữ liệu từ hệ thống cũ sang hệ thống mới", en: "Performed ETL of data from the old system to the new one" },
+      { vi: "Trực quan hóa dữ liệu bằng Power BI hỗ trợ doanh nghiệp ra quyết định", en: "Built Power BI visualizations to support business decision-making" },
+    ],
+    outcome: {
+      vi: "[Cập nhật business outcome]",
+      en: "[Update business outcome]",
+    },
+    evidence: [],
+    hasDetailPage: false,
+  },
+  {
+    slug: null,
+    kicker: { vi: "Dự án doanh nghiệp · Tài chính", en: "Enterprise project · Finance" },
+    name: { vi: "Hệ thống quản trị và phân tích tài chính cho tập đoàn X", en: "Financial management & analytics system for Corporation X" },
+    company: { vi: "Tập đoàn X", en: "Corporation X" },
+    time: { vi: "09/2024 – 01/2025", en: "Sep 2024 – Jan 2025" },
+    role: { vi: "Business Analyst, Data Analyst", en: "Business Analyst, Data Analyst" },
+    summary: {
+      vi: "Xây dựng hệ thống phân tích dữ liệu tài chính tập trung cho 5 công ty thành viên của một tập đoàn.",
+      en: "Built a centralized financial data-analytics system for 5 member companies of a corporate group.",
+    },
+    problem: {
+      vi: "Tập đoàn cần một góc nhìn tài chính hợp nhất trên 5 công ty thành viên, thay vì báo cáo rời rạc theo từng đơn vị.",
+      en: "The group needed a unified financial view across 5 member companies instead of fragmented per-entity reporting.",
+    },
+    myRole: {
+      vi: "Phân tích quy trình nghiệp vụ tài chính hiện tại, đề xuất bộ chỉ số đánh giá hiệu quả tài chính (KPI) và thiết kế mô hình dữ liệu phù hợp.",
+      en: "Analyzed current financial processes, proposed a set of financial KPIs, and designed the underlying data model.",
+    },
+    whatIDid: [
+      { vi: "Phân tích quy trình nghiệp vụ tài chính hiện tại và xây dựng hệ thống phân tích dữ liệu tập trung cho 5 công ty thành viên", en: "Analyzed current financial processes and built a centralized data-analytics system for 5 member companies" },
+      { vi: "Đề xuất bộ chỉ số đánh giá hiệu quả tài chính (KPI), thiết kế mô hình dữ liệu phù hợp", en: "Proposed a set of financial performance KPIs and designed a suitable data model" },
+      { vi: "Công nghệ: SQL Server, Power BI", en: "Technology: SQL Server, Power BI" },
+    ],
+    outcome: {
+      vi: "[Cập nhật business outcome]",
+      en: "[Update business outcome]",
+    },
+    evidence: [],
+    hasDetailPage: false,
+  },
 ];
 
 /** Smaller / self-directed work, shown as lighter cards (no dedicated detail page). */
@@ -199,76 +273,89 @@ export const otherWork = [
     href: "https://github.com/DatapotAnalytics/datapot-ba-test-demo",
     cta: { vi: "Xem repo", en: "View repo" },
   },
+  {
+    kicker: { vi: "Dự án cá nhân · Data Analyst", en: "Personal project · Data Analyst" },
+    name: { vi: "Phân tích dữ liệu chứng khoán", en: "Stock data analysis" },
+    desc: {
+      vi: "Thu thập dữ liệu giá cổ phiếu từ các API mở (SSI, TCBS, VNDIRECT), làm sạch bằng Python (pandas) và trực quan hóa bằng Power BI để đánh giá định kỳ (giá trị hợp lý, tăng trưởng, P/E...), hỗ trợ quyết định mua/bán cho danh mục cá nhân.",
+      en: "Collected stock price data from public APIs (SSI, TCBS, VNDIRECT), cleaned it with Python (pandas), and visualized it in Power BI for periodic evaluation (fair value, growth, P/E...) to support personal-portfolio buy/sell decisions.",
+    },
+    href: null,
+    cta: { vi: "01/2024 – 07/2024", en: "Jan 2024 – Jul 2024" },
+  },
 ];
 
 export const education = {
-  university: { vi: "[Cập nhật tên trường]", en: "[Update university name]" },
-  major: { vi: "[Cập nhật ngành học]", en: "[Update major]" },
-  time: { vi: "[Cập nhật thời gian học]", en: "[Update duration]" },
-  gpa: { vi: "[Cập nhật GPA]", en: "[Update GPA]" },
+  university: { vi: "Đại học Bách khoa Hà Nội", en: "Hanoi University of Science and Technology" },
+  major: { vi: "Hệ thống thông tin quản lý — Khoa Toán Tin", en: "Management Information Systems — School of Applied Mathematics & Informatics" },
+  time: { vi: "09/2021 – 07/2025", en: "Sep 2021 – Jul 2025" },
+  gpa: { vi: "3.66/4.0", en: "3.66/4.0" },
   coursework: [
     { vi: "[Cập nhật danh sách môn học liên quan]", en: "[Update list of relevant coursework]" },
   ],
   highlights: [
     {
-      title: { vi: "[Cập nhật: khóa luận / nghiên cứu]", en: "[Update: thesis / research]" },
-      desc: { vi: "[Cập nhật mô tả]", en: "[Update description]" },
+      title: { vi: "Giấy khen của Giám đốc Đại học", en: "Merit certificate from the University Director" },
+      desc: {
+        vi: "Cho sinh viên có nhiều đóng góp tích cực — năm học 2021–2022 và 2022–2023.",
+        en: "Awarded for active positive contributions — academic years 2021–2022 and 2022–2023.",
+      },
     },
     {
-      title: { vi: "[Cập nhật: học bổng / giải thưởng học thuật]", en: "[Update: scholarship / academic award]" },
-      desc: { vi: "[Cập nhật mô tả]", en: "[Update description]" },
+      title: { vi: "Danh hiệu Sinh viên 5 tốt cấp Đại học", en: "\"5 Good Student\" university-level title" },
+      desc: { vi: "Năm học 2022–2023.", en: "Academic year 2022–2023." },
     },
   ],
 };
 
-/** University & community activities — placeholders until real data is supplied. */
+/** University & community activities. */
 export const activities = [
   {
-    org: { vi: "[Tên câu lạc bộ / tổ chức]", en: "[Club / organization name]" },
-    category: { vi: "Câu lạc bộ", en: "Club" },
-    role: { vi: "[Cập nhật vai trò]", en: "[Update role]" },
-    time: { vi: "[Cập nhật thời gian]", en: "[Update dates]" },
-    description: { vi: "[Cập nhật mô tả hoạt động]", en: "[Update activity description]" },
-    contribution: { vi: "[Cập nhật đóng góp]", en: "[Update contribution]" },
-    result: { vi: "[Cập nhật kết quả]", en: "[Update result]" },
-  },
-  {
-    org: { vi: "[Tên hoạt động / cuộc thi]", en: "[Activity / competition name]" },
-    category: { vi: "Cuộc thi", en: "Competition" },
-    role: { vi: "[Cập nhật vai trò]", en: "[Update role]" },
-    time: { vi: "[Cập nhật thời gian]", en: "[Update dates]" },
-    description: { vi: "[Cập nhật mô tả hoạt động]", en: "[Update activity description]" },
-    contribution: { vi: "[Cập nhật đóng góp]", en: "[Update contribution]" },
-    result: { vi: "[Cập nhật kết quả]", en: "[Update result]" },
+    org: { vi: "Tổ Hỗ trợ triển khai Hệ thống iCTSV", en: "iCTSV System Rollout Support Team" },
+    category: { vi: "Lãnh đạo", en: "Leadership" },
+    role: { vi: "Trưởng mảng Truyền thông", en: "Head of Communications" },
+    time: { vi: "2021 – 2023", en: "2021 – 2023" },
+    description: {
+      vi: "Tham gia đội ngũ hỗ trợ triển khai hệ thống iCTSV tại trường, phụ trách mảng truyền thông trong suốt quá trình triển khai.",
+      en: "Part of the team supporting the university's iCTSV system rollout, responsible for the communications track throughout the rollout.",
+    },
+    contribution: {
+      vi: "Xây dựng kế hoạch truyền thông, viết bài và quản lý fanpage iCTSV (hơn 50.000 người theo dõi); hỗ trợ các sự kiện, hoạt động của Ban Công tác Sinh viên.",
+      en: "Built the communications plan, wrote content, and managed the iCTSV fanpage (50,000+ followers); supported events and activities run by the Student Affairs Office.",
+    },
+    result: {
+      vi: "Duy trì và phát triển fanpage iCTSV với hơn 50.000 người theo dõi.",
+      en: "Grew and maintained the iCTSV fanpage to over 50,000 followers.",
+    },
   },
 ];
 
 export const activitiesNote = {
-  vi: "Phần này đang được cập nhật — thêm hoạt động thời đại học & cộng đồng thật vào assets/js/data.js.",
-  en: "This section is being updated — add real university & community activities to assets/js/data.js.",
+  vi: "Sẽ tiếp tục cập nhật thêm các hoạt động khác tại đây.",
+  en: "More activities will be added here over time.",
 };
 
 /** Achievements & certifications. */
 export const achievements = [
   {
-    type: { vi: "Chứng nhận", en: "Certification" },
-    name: "Power BI / Microsoft Fabric (PL-300)",
-    org: "Microsoft",
-    date: { vi: "[Cập nhật ngày cấp]", en: "[Update issue date]" },
+    type: { vi: "Chứng chỉ", en: "Certification" },
+    name: "Google Data Analytics Certificate",
+    org: "Google",
+    date: { vi: "2024", en: "2024" },
+    url: null, // add the Coursera/credential URL here once available
+  },
+  {
+    type: { vi: "Cuộc thi", en: "Competition" },
+    name: { vi: "Top 5 khu vực miền Bắc — GDGoC Hackathon Vietnam 2025", en: "Top 5, Northern Region — GDGoC Hackathon Vietnam 2025" },
+    org: "Google Developer Groups on Campus (GDGoC)",
+    date: { vi: "2025", en: "2025" },
     url: null,
   },
   {
-    type: { vi: "Học bổng", en: "Scholarship" },
-    name: { vi: "[Cập nhật tên học bổng]", en: "[Update scholarship name]" },
-    org: { vi: "[Cập nhật đơn vị cấp]", en: "[Update issuing organization]" },
-    date: { vi: "[Cập nhật thời gian]", en: "[Update date]" },
-    url: null,
-  },
-  {
-    type: { vi: "Giải thưởng học thuật", en: "Academic award" },
-    name: { vi: "[Cập nhật tên giải thưởng]", en: "[Update award name]" },
-    org: { vi: "[Cập nhật đơn vị cấp]", en: "[Update issuing organization]" },
-    date: { vi: "[Cập nhật thời gian]", en: "[Update date]" },
+    type: { vi: "Cuộc thi", en: "Competition" },
+    name: { vi: "Giải \"Giải pháp công nghệ triển vọng\" — SheCodes Hackathon 2023", en: "\"Promising Tech Solution\" Award — SheCodes Hackathon 2023" },
+    org: "SheCodes",
+    date: { vi: "2023", en: "2023" },
     url: null,
   },
 ];

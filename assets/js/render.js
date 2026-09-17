@@ -30,6 +30,13 @@ function renderNav(lang) {
   }
 }
 
+function renderPortrait(lang) {
+  const frame = el("portrait-frame");
+  if (!frame || !profile.portraitUrl) return;
+  const alt = lang === "en" ? `Portrait of ${profile.name}` : `Ảnh chân dung ${profile.name}`;
+  frame.innerHTML = `<img src="${profile.portraitUrl}" alt="${alt}" width="480" height="600" loading="eager">`;
+}
+
 function renderHeroSocials(lang) {
   const container = el("hero-socials");
   if (!container) return;
@@ -129,9 +136,9 @@ function renderProjects(lang) {
         <div class="case-study-head">
           <div>
             <p class="project-kicker">${t(p.kicker, lang)}</p>
-            <h3>${p.name}</h3>
+            <h3>${t(p.name, lang)}</h3>
             <div class="case-study-meta">
-              <span>${p.company}</span>
+              <span>${t(p.company, lang)}</span>
               <span>${t(p.time, lang)}</span>
               <span>${t(p.role, lang)}</span>
             </div>
@@ -156,10 +163,12 @@ function renderProjects(lang) {
             <p class="${p.outcome.vi.startsWith("[") ? "placeholder" : ""}">${t(p.outcome, lang)}</p>
           </div>
         </div>
-        <div class="case-study-evidence">
-          ${p.evidence.map((e) => `<span><strong>${e.value}</strong> ${t(e.label, lang)}</span>`).join("")}
-        </div>
-        <div class="case-study-footer">${detailLink}</div>
+        ${
+          p.evidence.length
+            ? `<div class="case-study-evidence">${p.evidence.map((e) => `<span><strong>${e.value}</strong> ${t(e.label, lang)}</span>`).join("")}</div>`
+            : ""
+        }
+        ${detailLink ? `<div class="case-study-footer">${detailLink}</div>` : ""}
       </article>`;
       })
       .join("");
@@ -174,7 +183,7 @@ function renderProjects(lang) {
         <p class="project-kicker">${t(w.kicker, lang)}</p>
         <h3>${t(w.name, lang)}</h3>
         <p>${t(w.desc, lang)}</p>
-        <a href="${w.href}" target="_blank" rel="noopener">${t(w.cta, lang)} →</a>
+        ${w.href ? `<a href="${w.href}" target="_blank" rel="noopener">${t(w.cta, lang)} →</a>` : `<span class="work-meta">${t(w.cta, lang)}</span>`}
       </article>`
       )
       .join("");
@@ -304,6 +313,7 @@ function renderClosingContact(lang) {
 
 export function renderAll(lang) {
   renderNav(lang);
+  renderPortrait(lang);
   renderHeroSocials(lang);
   renderHighlights(lang);
   renderJourney(lang);
