@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Datapot Operations Platform — Case Study | Phạm Thị Thùy Giang</title>
+<meta name="description" content="Case study: Datapot Operations Platform — event-driven modular monolith vận hành trung tâm đào tạo nghề. Business Analyst: Phạm Thị Thùy Giang.">
+<link rel="canonical" href="https://giangptt-datapot.github.io/projects/datapot-operations-platform.html">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%234b6650'/%3E%3Ctext x='50' y='66' font-size='42' font-family='Georgia, serif' fill='%23faf7f0' text-anchor='middle'%3EPTG%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main-content" data-vi="Bỏ qua để vào nội dung chính" data-en="Skip to main content">Bỏ qua để vào nội dung chính</a>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="../index.html#top" class="nav-brand">PTG</a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="../index.html#about" data-vi="Giới thiệu" data-en="About">Giới thiệu</a></li>
+        <li><a href="../index.html#projects" data-vi="Dự án" data-en="Projects">Dự án</a></li>
+        <li><a href="../index.html#contact" data-vi="Liên hệ" data-en="Contact">Liên hệ</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <div class="lang-switch" role="group" aria-label="Language switch">
+        <button type="button" data-lang-option="vi" aria-pressed="true">VN</button>
+        <button type="button" data-lang-option="en" aria-pressed="false">EN</button>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Mở menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+  <section class="detail-hero">
+    <div class="container">
+      <a class="detail-back" href="../index.html#projects" data-vi="← Quay lại tất cả dự án" data-en="← Back to all projects">← Quay lại tất cả dự án</a>
+      <p class="eyebrow" data-vi="Ops Platform · Datapot" data-en="Ops Platform · Datapot">Ops Platform · Datapot</p>
+      <h1>Datapot Operations Platform</h1>
+      <div class="detail-meta">
+        <span data-vi="Vai trò: Business Analyst · Top 2 contributor" data-en="Role: Business Analyst · Top 2 contributor">Vai trò: Business Analyst · Top 2 contributor</span>
+        <span data-vi="Thời gian: 02/2026 – hiện tại" data-en="Timeline: Feb 2026 – present">Thời gian: 02/2026 – hiện tại</span>
+      </div>
+      <p class="detail-summary" data-vi="Nền tảng vận hành dạng event-driven modular monolith cho trung tâm đào tạo nghề — LMS, Trainer/Learner Portal, CRM, CMS." data-en="An event-driven modular-monolith operations platform for a vocational-training center — LMS, Trainer/Learner Portal, CRM, CMS.">
+        Nền tảng vận hành dạng event-driven modular monolith cho trung tâm đào tạo nghề — LMS, Trainer/Learner Portal, CRM, CMS.
+      </p>
+    </div>
+  </section>
+
+  <section class="detail-section">
+    <div class="container">
+      <h2 data-vi="Tổng quan" data-en="Overview">Tổng quan</h2>
+      <p data-vi="Datapot Operations Platform là hệ thống trung tâm để vận hành một trung tâm đào tạo nghề — từ quản lý lớp học, điểm danh, học viên, giảng viên, đến CRM cho tuyển sinh. Mình tham gia với vai trò Business Analyst, đồng thời là một trong hai contributor đóng góp code nhiều nhất cho hệ thống." data-en="The Datapot Operations Platform is the central system for running a vocational-training center — from class management, attendance and learners to trainers and admissions CRM. I work on it as a Business Analyst, and I'm also one of the two highest-contributing engineers on the codebase.">
+        Datapot Operations Platform là hệ thống trung tâm để vận hành một trung tâm đào tạo nghề — từ quản lý lớp học, điểm danh, học viên, giảng viên, đến CRM cho tuyển sinh. Mình tham gia với vai trò Business Analyst, đồng thời là một trong hai contributor đóng góp code nhiều nhất cho hệ thống.
+      </p>
+    </div>
+  </section>
+
+  <section class="detail-section">
+    <div class="container">
+      <h2 data-vi="Bối cảnh kinh doanh" data-en="Business context">Bối cảnh kinh doanh</h2>
+      <p data-vi="Trung tâm đào tạo cần một nền tảng vận hành hợp nhất — lớp học, điểm danh, học viên, giảng viên, CRM — thay vì rời rạc qua nhiều công cụ và quy trình thủ công. Hệ thống được xây dựng theo kiến trúc event-driven modular monolith để các phân hệ (LMS, Portal, CRM, CMS) có thể phát triển độc lập nhưng vẫn đồng bộ dữ liệu." data-en="The training center needed one unified operations platform — classes, attendance, learners, trainers, CRM — instead of fragmented tools and manual processes. The system follows an event-driven modular-monolith architecture so its modules (LMS, Portal, CRM, CMS) can evolve independently while staying in sync.">
+        Trung tâm đào tạo cần một nền tảng vận hành hợp nhất — lớp học, điểm danh, học viên, giảng viên, CRM — thay vì rời rạc qua nhiều công cụ và quy trình thủ công. Hệ thống được xây dựng theo kiến trúc event-driven modular monolith để các phân hệ (LMS, Portal, CRM, CMS) có thể phát triển độc lập nhưng vẫn đồng bộ dữ liệu.
+      </p>
+    </div>
+  </section>
+
+  <section class="detail-section">
+    <div class="container">
+      <h2 data-vi="Bài toán" data-en="Problem">Bài toán</h2>
+      <p data-vi="Làm sao để lớp học, điểm danh (bao gồm điểm danh tự động qua Microsoft Teams), bài tập và hồ sơ học viên/giảng viên vận hành trên một hệ thống duy nhất, đủ tin cậy cho việc sử dụng hằng ngày, thay vì các bảng tính và quy trình thủ công rời rạc." data-en="How to run classes, attendance (including automated attendance via Microsoft Teams), assignments, and learner/trainer records on one reliable system for daily use — replacing scattered spreadsheets and manual processes.">
+        Làm sao để lớp học, điểm danh (bao gồm điểm danh tự động qua Microsoft Teams), bài tập và hồ sơ học viên/giảng viên vận hành trên một hệ thống duy nhất, đủ tin cậy cho việc sử dụng hằng ngày, thay vì các bảng tính và quy trình thủ công rời rạc.
+      </p>
+    </div>
+  </section>
+
+  <section class="detail-section">
+    <div class="container detail-two-col">
+      <div>
+        <h2 data-vi="Vai trò của mình" data-en="My role">Vai trò của mình</h2>
+        <p data-vi="Phân tích nghiệp vụ và audit hệ thống, sau đó trực tiếp tham gia xây dựng tính năng trên hệ thống thật — từ đặc tả yêu cầu đến triển khai production." data-en="Business analysis and system audits, then hands-on feature development on the live system — from requirements to production deployment.">
+          Phân tích nghiệp vụ và audit hệ thống, sau đó trực tiếp tham gia xây dựng tính năng trên hệ thống thật — từ đặc tả yêu cầu đến triển khai production.
+        </p>
+      </div>
+      <div>
+        <h2 data-vi="Trách nhiệm chính" data-en="Responsibilities">Trách nhiệm chính</h2>
+        <ul>
+          <li data-vi="Learner Portal: dashboard, lịch học calendar (day/week/month), ghi nhận điểm danh & bài tập" data-en="Learner Portal: dashboard, calendar view (day/week/month), attendance & assignment tracking">Learner Portal: dashboard, lịch học calendar (day/week/month), ghi nhận điểm danh &amp; bài tập</li>
+          <li data-vi="Trainer Portal: session detail, tái tổ chức tab, tối ưu responsive mobile" data-en="Trainer Portal: session detail, tab reorganization, mobile-responsive optimization">Trainer Portal: session detail, tái tổ chức tab, tối ưu responsive mobile</li>
+          <li data-vi="Tích hợp Microsoft Teams/Graph cho điểm danh tự động" data-en="Microsoft Teams/Graph integration for automated attendance">Tích hợp Microsoft Teams/Graph cho điểm danh tự động</li>
+          <li data-vi="CRM: bộ lọc Leads, tối ưu index cho lead-pool" data-en="CRM: lead filters, indexing optimization for the lead pool">CRM: bộ lọc Leads, tối ưu index cho lead-pool</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section">
+    <div class="container">
+      <h2 data-vi="Quy trình làm việc" data-en="Process">Quy trình làm việc</h2>
+      <p class="placeholder" data-vi="[Cập nhật quy trình cụ thể — ví dụ cách backlog được ưu tiên, phối hợp với kỹ sư, chu kỳ review/release]" data-en="[Update the specific process — e.g. how the backlog is prioritized, coordination with engineers, review/release cadence]">[Cập nhật quy trình cụ thể — ví dụ cách backlog được ưu tiên, phối hợp với kỹ sư, chu kỳ review/release]</p>
+    </div>
+  </section>
+
+  <section class="detail-section">
+    <div class="container">
+      <h2 data-vi="Quyết định quan trọng" data-en="Key decisions">Quyết định quan trọng</h2>
+      <p class="placeholder" data-vi="[Cập nhật các quyết định nghiệp vụ/kỹ thuật quan trọng đã đưa ra và lý do lựa chọn]" data-en="[Update the key business/technical decisions made and the reasoning behind them]">[Cập nhật các quyết định nghiệp vụ/kỹ thuật quan trọng đã đưa ra và lý do lựa chọn]</p>
+    </div>
+  </section>
+
+  <section class="detail-section">
+    <div class="container">
+      <h2 data-vi="Kết quả bàn giao" data-en="Deliverables">Kết quả bàn giao</h2>
+      <ul>
+        <li data-vi="Learner Portal: dashboard, lịch học calendar, ghi nhận điểm danh & bài tập (epic đa giai đoạn)" data-en="Learner Portal: dashboard, calendar view, attendance & assignment tracking (multi-phase epic)">Learner Portal: dashboard, lịch học calendar, ghi nhận điểm danh &amp; bài tập (epic đa giai đoạn)</li>
+        <li data-vi="Tích hợp Microsoft Teams/Graph: đồng bộ điểm danh qua callRecords/attendanceRecords, xử lý matching meeting-organizer, bootstrap subscription" data-en="Microsoft Teams/Graph integration: attendance sync via callRecords/attendanceRecords, meeting-organizer matching, subscription bootstrap">Tích hợp Microsoft Teams/Graph: đồng bộ điểm danh qua callRecords/attendanceRecords, xử lý matching meeting-organizer, bootstrap subscription</li>
+        <li data-vi="CI/CD & hạ tầng: xử lý race condition Postgres readiness, drizzle-kit migrate, serialize VM run-command" data-en="CI/CD & infrastructure: fixing Postgres readiness race conditions, drizzle-kit migrations, serializing VM run-commands">CI/CD &amp; hạ tầng: xử lý race condition Postgres readiness, drizzle-kit migrate, serialize VM run-command</li>
+        <li data-vi="CMS/MCP & RBAC: mở rộng write surface, fix phân quyền finance" data-en="CMS/MCP & RBAC: extended the write surface, fixed finance permission issues">CMS/MCP &amp; RBAC: mở rộng write surface, fix phân quyền finance</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="detail-section">
+    <div class="container">
+      <h2 data-vi="Ảnh minh họa" data-en="Screenshots">Ảnh minh họa</h2>
+      <div class="screenshot-note" data-vi="[Cập nhật ảnh chụp màn hình các tính năng chính — Learner Portal, Trainer Portal, tích hợp Teams]" data-en="[Update with screenshots of the key features — Learner Portal, Trainer Portal, Teams integration]">
+        [Cập nhật ảnh chụp màn hình các tính năng chính — Learner Portal, Trainer Portal, tích hợp Teams]
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section">
+    <div class="container">
+      <h2 data-vi="Kết quả" data-en="Outcome">Kết quả</h2>
+      <p class="placeholder" data-vi="[Cập nhật business outcome — ví dụ thời gian xử lý vận hành giảm bao nhiêu, số lớp học/học viên đang chạy qua hệ thống]" data-en="[Update business outcome — e.g. reduction in operational processing time, number of classes/learners now running on the system]">[Cập nhật business outcome — ví dụ thời gian xử lý vận hành giảm bao nhiêu, số lớp học/học viên đang chạy qua hệ thống]</p>
+      <div class="case-study-evidence">
+        <span><strong>839</strong> <span data-vi="commits" data-en="commits">commits</span></span>
+        <span><strong>269 / 286</strong> <span data-vi="PR merged / mở" data-en="PRs merged / opened">PR merged / mở</span></span>
+        <span><strong>144</strong> <span data-vi="issue phân tích & tạo" data-en="issues analyzed & authored">issue phân tích &amp; tạo</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section">
+    <div class="container">
+      <h2 data-vi="Bài học rút ra" data-en="Lessons learned">Bài học rút ra</h2>
+      <p class="placeholder" data-vi="[Cập nhật bài học rút ra từ quá trình xây dựng và vận hành hệ thống]" data-en="[Update lessons learned from building and operating this system]">[Cập nhật bài học rút ra từ quá trình xây dựng và vận hành hệ thống]</p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <strong>PTG</strong>
+        <span>Phạm Thị Thùy Giang — <span data-vi="Business Analyst" data-en="Business Analyst">Business Analyst</span></span>
+      </div>
+    </div>
+    <p class="footer-meta">© <span id="year"></span> Phạm Thị Thùy Giang.</p>
+  </div>
+</footer>
+
+<script type="module" src="../assets/js/detail.js"></script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Datapot Website (Next.js 16) — Case Study | Phạm Thị Thùy Giang</title>
+<meta name="description" content="Case study: Datapot Website — migration nội dung, CMS, redirect pipeline và checkout cho website tuyển sinh Datapot Academy. Business Analyst: Phạm Thị Thùy Giang.">
+<link rel="canonical" href="https://giangptt-datapot.github.io/projects/datapot-website-cms.html">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%234b6650'/%3E%3Ctext x='50' y='66' font-size='42' font-family='Georgia, serif' fill='%23faf7f0' text-anchor='middle'%3EPTG%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main-content" data-vi="Bỏ qua để vào nội dung chính" data-en="Skip to main content">Bỏ qua để vào nội dung chính</a>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="../index.html#top" class="nav-brand">PTG</a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="../index.html#about" data-vi="Giới thiệu" data-en="About">Giới thiệu</a></li>
+        <li><a href="../index.html#projects" data-vi="Dự án" data-en="Projects">Dự án</a></li>
+        <li><a href="../index.html#contact" data-vi="Liên hệ" data-en="Contact">Liên hệ</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <div class="lang-switch" role="group" aria-label="Language switch">
+        <button type="button" data-lang-option="vi" aria-pressed="true">VN</button>
+        <button type="button" data-lang-option="en" aria-pressed="false">EN</button>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Mở menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+  <section class="detail-hero">
+    <div class="container">
+      <a class="detail-back" href="../index.html#projects" data-vi="← Quay lại tất cả dự án" data-en="← Back to all projects">← Quay lại tất cả dự án</a>
+      <p class="eyebrow" data-vi="Website · Datapot Academy" data-en="Website · Datapot Academy">Website · Datapot Academy</p>
+      <h1>Datapot Website (Next.js 16)</h1>
+      <div class="detail-meta">
+        <span data-vi="Vai trò: Core contributor" data-en="Role: Core contributor">Vai trò: Core contributor</span>
+        <span data-vi="Thời gian: 06/2026 – 08/2026" data-en="Timeline: Jun 2026 – Aug 2026">Thời gian: 06/2026 – 08/2026</span>
+      </div>
+      <p class="detail-summary" data-vi="Website tuyển sinh & nội dung công khai của Datapot Academy, tách riêng khỏi ops platform nội bộ." data-en="Datapot Academy's public admissions and content website, split out from the internal ops platform.">
+        Website tuyển sinh &amp; nội dung công khai của Datapot Academy, tách riêng khỏi ops platform nội bộ.
+      </p>
+    </div>
+  </section>
+
+  <section class="detail-section">
+    <div class="container">
+      <h2 data-vi="Tổng quan" data-en="Overview">Tổng quan</h2>
+      <p data-vi="Datapot Website là website tuyển sinh và nội dung công khai của Datapot Academy, xây trên Next.js 16, tách riêng khỏi Ops Platform nội bộ. Mình tham gia với vai trò core contributor, tập trung vào pipeline redirect, nội dung CMS-driven và checkout." data-en="The Datapot Website is Datapot Academy's public admissions and content site, built on Next.js 16 and split apart from the internal Ops Platform. I work on it as a core contributor, focused on the redirect pipeline, CMS-driven content and checkout.">
+        Datapot Website là website tuyển sinh và nội dung công khai của Datapot Academy, xây trên Next.js 16, tách riêng khỏi Ops Platform nội bộ. Mình tham gia với vai trò core contributor, tập trung vào pipeline redirect, nội dung CMS-driven và checkout.
+      </p>
+    </div>
+  </section>
+
+  <section class="detail-section">
+    <div class="container">
+      <h2 data-vi="Bối cảnh kinh doanh" data-en="Business context">Bối cảnh kinh doanh</h2>
+      <p data-vi="Website tuyển sinh trước đó chạy trên WordPress và cần được migrate sang nền tảng mới, đồng thời tách khỏi hệ thống vận hành nội bộ để triển khai và mở rộng độc lập." data-en="The admissions site previously ran on WordPress and needed to be migrated to the new platform, while being separated from the internal operations system so it could be deployed and scaled independently.">
+        Website tuyển sinh trước đó chạy trên WordPress và cần được migrate sang nền tảng mới, đồng thời tách khỏi hệ thống vận hành nội bộ để triển khai và mở rộng độc lập.
+      </p>
+    </div>
+  </section>
+
+  <section class="detail-section">
+    <div class="container">
+      <h2 data-vi="Bài toán" data-en="Problem">Bài toán</h2>
+      <p data-vi="Website tuyển sinh cần tách khỏi hệ thống vận hành nội bộ, đồng thời xử lý nợ kỹ thuật phát sinh khi migrate nội dung từ WordPress sang nền tảng mới — bao gồm redirect, SEO và nội dung CMS." data-en="The admissions site needed to be separated from the internal operations system, while resolving technical debt from migrating content off WordPress onto the new platform — including redirects, SEO and CMS content.">
+        Website tuyển sinh cần tách khỏi hệ thống vận hành nội bộ, đồng thời xử lý nợ kỹ thuật phát sinh khi migrate nội dung từ WordPress sang nền tảng mới — bao gồm redirect, SEO và nội dung CMS.
+      </p>
+    </div>
+  </section>
+
+  <section class="detail-section">
+    <div class="container detail-two-col">
+      <div>
+        <h2 data-vi="Vai trò của mình" data-en="My role">Vai trò của mình</h2>
+        <p data-vi="Đóng góp cốt lõi (core contributor): phân tích và triển khai các luồng nội dung, redirect và checkout; chủ trì điều phối một số đợt release." data-en="Core contributor: analyzed and implemented content, redirect and checkout flows; led coordination of several release cycles.">
+          Đóng góp cốt lõi (core contributor): phân tích và triển khai các luồng nội dung, redirect và checkout; chủ trì điều phối một số đợt release.
+        </p>
+      </div>
+      <div>
+        <h2 data-vi="Trách nhiệm chính" data-en="Responsibilities">Trách nhiệm chính</h2>
+        <ul>
+          <li data-vi="Redirect/proxy pipeline: chuẩn hoá redirect WordPress → edu.vn" data-en="Redirect/proxy pipeline: standardized WordPress → edu.vn redirects">Redirect/proxy pipeline: chuẩn hoá redirect WordPress → edu.vn</li>
+          <li data-vi="CMS-driven content: page-builder cho Landing Page, Form Builder" data-en="CMS-driven content: Landing Page builder, Form Builder">CMS-driven content: page-builder cho Landing Page, Form Builder</li>
+          <li data-vi="E-commerce: luồng chọn hình thức học Hybrid tại checkout" data-en="E-commerce: hybrid study-mode selection at checkout">E-commerce: luồng chọn hình thức học Hybrid tại checkout</li>
+          <li data-vi="Bảo mật & hiệu năng: vá CVE, đồng bộ ISR cache" data-en="Security & performance: patched CVEs, synchronized ISR cache">Bảo mật &amp; hiệu năng: vá CVE, đồng bộ ISR cache</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section">
+    <div class="container">
+      <h2 data-vi="Quy trình làm việc" data-en="Process">Quy trình làm việc</h2>
+      <p class="placeholder" data-vi="[Cập nhật quy trình cụ thể — ví dụ cách redirect được audit, phối hợp release giữa dev và main]" data-en="[Update the specific process — e.g. how redirects were audited, dev-to-main release coordination]">[Cập nhật quy trình cụ thể — ví dụ cách redirect được audit, phối hợp release giữa dev và main]</p>
+    </div>
+  </section>
+
+  <section class="detail-section">
+    <div class="container">
+      <h2 data-vi="Quyết định quan trọng" data-en="Key decisions">Quyết định quan trọng</h2>
+      <p class="placeholder" data-vi="[Cập nhật các quyết định nghiệp vụ/kỹ thuật quan trọng đã đưa ra và lý do lựa chọn]" data-en="[Update the key business/technical decisions made and the reasoning behind them]">[Cập nhật các quyết định nghiệp vụ/kỹ thuật quan trọng đã đưa ra và lý do lựa chọn]</p>
+    </div>
+  </section>
+
+  <section class="detail-section">
+    <div class="container">
+      <h2 data-vi="Kết quả bàn giao" data-en="Deliverables">Kết quả bàn giao</h2>
+      <ul>
+        <li data-vi="Redirect/proxy pipeline: chuẩn hoá redirect WordPress → edu.vn, fix loopback fallback, dọn dẹp legacy redirect map" data-en="Redirect/proxy pipeline: standardized WordPress → edu.vn redirects, fixed loopback fallback, cleaned up the legacy redirect map">Redirect/proxy pipeline: chuẩn hoá redirect WordPress → edu.vn, fix loopback fallback, dọn dẹp legacy redirect map</li>
+        <li data-vi="CMS-driven content: page-builder cho Landing Page, Form Builder, render nội dung trực tiếp từ CMS Product" data-en="CMS-driven content: Landing Page builder, Form Builder, rendering content directly from the CMS Product model">CMS-driven content: page-builder cho Landing Page, Form Builder, render nội dung trực tiếp từ CMS Product</li>
+        <li data-vi="E-commerce: luồng chọn hình thức học Hybrid (Online/Offline) tại checkout" data-en="E-commerce: hybrid (online/offline) study-mode selection at checkout">E-commerce: luồng chọn hình thức học Hybrid (Online/Offline) tại checkout</li>
+        <li data-vi="Release management: chủ trì nhiều đợt promote dev → main go-live" data-en="Release management: led multiple dev → main go-live promotions">Release management: chủ trì nhiều đợt promote dev → main go-live</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="detail-section">
+    <div class="container">
+      <h2 data-vi="Ảnh minh họa" data-en="Screenshots">Ảnh minh họa</h2>
+      <div class="screenshot-note" data-vi="[Cập nhật ảnh chụp màn hình — landing page, form builder, checkout]" data-en="[Update with screenshots — landing page, form builder, checkout]">
+        [Cập nhật ảnh chụp màn hình — landing page, form builder, checkout]
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section">
+    <div class="container">
+      <h2 data-vi="Kết quả" data-en="Outcome">Kết quả</h2>
+      <p class="placeholder" data-vi="[Cập nhật business outcome — ví dụ số redirect được chuẩn hoá, tác động SEO/traffic]" data-en="[Update business outcome — e.g. number of redirects standardized, SEO/traffic impact]">[Cập nhật business outcome — ví dụ số redirect được chuẩn hoá, tác động SEO/traffic]</p>
+      <div class="case-study-evidence">
+        <span><strong>105</strong> <span data-vi="commits" data-en="commits">commits</span></span>
+        <span><strong>53 / 55</strong> <span data-vi="PR merged / mở" data-en="PRs merged / opened">PR merged / mở</span></span>
+        <span><strong>11</strong> <span data-vi="issue phân tích & tạo" data-en="issues analyzed & authored">issue phân tích &amp; tạo</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section">
+    <div class="container">
+      <h2 data-vi="Bài học rút ra" data-en="Lessons learned">Bài học rút ra</h2>
+      <p class="placeholder" data-vi="[Cập nhật bài học rút ra từ quá trình migrate và vận hành website]" data-en="[Update lessons learned from migrating and operating the website]">[Cập nhật bài học rút ra từ quá trình migrate và vận hành website]</p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <strong>PTG</strong>
+        <span>Phạm Thị Thùy Giang — <span data-vi="Business Analyst" data-en="Business Analyst">Business Analyst</span></span>
+      </div>
+    </div>
+    <p class="footer-meta">© <span id="year"></span> Phạm Thị Thùy Giang.</p>
+  </div>
+</footer>
+
+<script type="module" src="../assets/js/detail.js"></script>
+</body>
+</html>
