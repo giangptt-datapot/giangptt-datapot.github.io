@@ -19,10 +19,19 @@ function el(id) {
   return document.getElementById(id);
 }
 
-function renderNav(lang) {
+/** Nav + footer — shared across every page. */
+export function renderChrome(lang) {
+  const currentPath = location.pathname.replace(/\/index\.html$/, "/");
+
   const desktop = el("nav-links-desktop");
-  const html = navLinks.map((link) => `<li><a href="${link.href}">${t(link, lang)}</a></li>`).join("");
-  if (desktop) desktop.innerHTML = html;
+  if (desktop) {
+    desktop.innerHTML = navLinks
+      .map((link) => {
+        const isActive = currentPath === link.href;
+        return `<li><a href="${link.href}"${isActive ? ' class="is-active" aria-current="page"' : ""}>${t(link, lang)}</a></li>`;
+      })
+      .join("");
+  }
 
   const footerNav = el("footer-nav");
   if (footerNav) {
@@ -69,14 +78,19 @@ function renderHeroSocials(lang) {
       ctaSecondary.classList.add("btn-outline");
       ctaSecondary.removeAttribute("aria-disabled");
     } else {
-      ctaSecondary.href = "#contact";
+      ctaSecondary.href = "/contact.html";
       ctaSecondary.textContent = lang === "en" ? "Contact for CV" : "Liên hệ để nhận CV";
       ctaSecondary.classList.add("btn-outline");
     }
   }
 }
 
-function renderHighlights(lang) {
+export function renderHero(lang) {
+  renderPortrait(lang);
+  renderHeroSocials(lang);
+}
+
+export function renderHighlights(lang) {
   const grid = el("highlight-grid");
   if (grid) {
     grid.innerHTML = highlights
@@ -93,7 +107,7 @@ function renderHighlights(lang) {
   if (note) note.textContent = t(highlightNote, lang);
 }
 
-function renderJourney(lang) {
+export function renderJourney(lang) {
   const list = el("journey-list");
   if (!list) return;
   list.innerHTML = journey
@@ -109,7 +123,7 @@ function renderJourney(lang) {
     .join("");
 }
 
-function renderExpertise(lang) {
+export function renderExpertise(lang) {
   const grid = el("expertise-grid");
   if (!grid) return;
   grid.innerHTML = expertise
@@ -123,15 +137,40 @@ function renderExpertise(lang) {
     .join("");
 }
 
-function renderProjects(lang) {
-  const container = el("case-study-list");
-  if (container) {
-    container.innerHTML = projects
-      .map((p) => {
-        const detailLink = p.hasDetailPage
-          ? `<a class="case-study-link" href="projects/${p.slug}.html">${lang === "en" ? "Read full case study" : "Xem case study đầy đủ"} →</a>`
-          : "";
-        return `
+/** Compact expertise chips for the homepage teaser (titles only, linking out to the full page). */
+export function renderExpertiseTeaser(lang) {
+  const container = el("expertise-teaser");
+  if (!container) return;
+  container.innerHTML = expertise.map((card) => `<span class="tag">${t(card.title, lang)}</span>`).join("");
+}
+
+function caseStudyMarkup(p, lang, { teaser = false } = {}) {
+  const detailLink = p.hasDetailPage
+    ? `<a class="case-study-link" href="/projects/${p.slug}.html">${lang === "en" ? "Read full case study" : "Xem case study đầy đủ"} →</a>`
+    : "";
+
+  if (teaser) {
+    return `
+      <article class="case-study reveal">
+        <div class="case-study-head">
+          <div>
+            <p class="project-kicker">${t(p.kicker, lang)}</p>
+            <h3>${t(p.name, lang)}</h3>
+            <div class="case-study-meta">
+              <span>${t(p.company, lang)}</span>
+              <span>${t(p.time, lang)}</span>
+              <span>${t(p.role, lang)}</span>
+            </div>
+          </div>
+        </div>
+        <p class="case-study-desc">${t(p.summary, lang)}</p>
+        <div class="case-study-footer">
+          <a class="case-study-link" href="/projects.html">${lang === "en" ? "See all projects" : "Xem tất cả dự án"} →</a>
+        </div>
+      </article>`;
+  }
+
+  return `
       <article class="case-study reveal">
         <div class="case-study-head">
           <div>
@@ -170,27 +209,42 @@ function renderProjects(lang) {
         }
         ${detailLink ? `<div class="case-study-footer">${detailLink}</div>` : ""}
       </article>`;
-      })
-      .join("");
-  }
+}
 
+/** Full case-study list — used on the Projects page. */
+export function renderCaseStudies(lang) {
+  const container = el("case-study-list");
+  if (!container) return;
+  container.innerHTML = projects.map((p) => caseStudyMarkup(p, lang, { teaser: false })).join("");
+}
+
+/** Condensed case-study teasers — used on the homepage. `limit` caps how many show. */
+export function renderCaseStudyTeasers(lang, limit = 2) {
+  const container = el("case-study-teaser-list");
+  if (!container) return;
+  container.innerHTML = projects
+    .slice(0, limit)
+    .map((p) => caseStudyMarkup(p, lang, { teaser: true }))
+    .join("");
+}
+
+export function renderOtherWork(lang) {
   const otherContainer = el("other-work-list");
-  if (otherContainer) {
-    otherContainer.innerHTML = otherWork
-      .map(
-        (w) => `
+  if (!otherContainer) return;
+  otherContainer.innerHTML = otherWork
+    .map(
+      (w) => `
       <article class="work-card reveal">
         <p class="project-kicker">${t(w.kicker, lang)}</p>
         <h3>${t(w.name, lang)}</h3>
         <p>${t(w.desc, lang)}</p>
         ${w.href ? `<a href="${w.href}" target="_blank" rel="noopener">${t(w.cta, lang)} →</a>` : `<span class="work-meta">${t(w.cta, lang)}</span>`}
       </article>`
-      )
-      .join("");
-  }
+    )
+    .join("");
 }
 
-function renderEducation(lang) {
+export function renderEducation(lang) {
   const university = el("edu-university");
   const major = el("edu-major");
   const time = el("edu-time");
@@ -218,7 +272,14 @@ function renderEducation(lang) {
   }
 }
 
-function renderActivities(lang) {
+/** One-line education teaser for the homepage. */
+export function renderEducationTeaser(lang) {
+  const el1 = el("education-teaser-text");
+  if (!el1) return;
+  el1.textContent = `${t(education.university, lang)} · ${t(education.major, lang).split("—")[0].trim()} · GPA ${t(education.gpa, lang)}`;
+}
+
+export function renderActivities(lang) {
   const grid = el("activity-grid");
   if (grid) {
     grid.innerHTML = activities
@@ -250,7 +311,15 @@ function renderActivities(lang) {
   if (note) note.textContent = t(activitiesNote, lang);
 }
 
-function renderAchievements(lang) {
+/** One-line activities teaser for the homepage. */
+export function renderActivitiesTeaser(lang) {
+  const el1 = el("activities-teaser-text");
+  if (!el1 || !activities.length) return;
+  const first = activities[0];
+  el1.textContent = `${t(first.role, lang)}, ${t(first.org, lang)}`;
+}
+
+export function renderAchievements(lang) {
   const grid = el("achievement-grid");
   if (!grid) return;
   grid.innerHTML = achievements
@@ -267,7 +336,16 @@ function renderAchievements(lang) {
     .join("");
 }
 
-function renderArticles(lang) {
+/** One-line achievements teaser for the homepage. */
+export function renderAchievementsTeaser(lang) {
+  const el1 = el("achievements-teaser-text");
+  if (!el1) return;
+  const count = achievements.length;
+  el1.textContent =
+    lang === "en" ? `${count} certifications & competition awards` : `${count} chứng chỉ & giải thưởng cuộc thi`;
+}
+
+export function renderArticles(lang) {
   const grid = el("article-grid");
   if (!grid) return;
   grid.innerHTML = articles
@@ -286,7 +364,7 @@ function renderArticles(lang) {
     .join("");
 }
 
-function renderClosingContact(lang) {
+export function renderContactLinks(lang) {
   const primaryCta = el("contact-cta-primary");
   if (primaryCta) {
     if (profile.email) primaryCta.href = `mailto:${profile.email}`;
@@ -309,19 +387,4 @@ function renderClosingContact(lang) {
       : `<span class="social-link" aria-disabled="true">Email — ${lang === "en" ? "[Update address]" : "[Cập nhật địa chỉ]"}</span>`
   );
   container.innerHTML = items.join("");
-}
-
-export function renderAll(lang) {
-  renderNav(lang);
-  renderPortrait(lang);
-  renderHeroSocials(lang);
-  renderHighlights(lang);
-  renderJourney(lang);
-  renderExpertise(lang);
-  renderProjects(lang);
-  renderEducation(lang);
-  renderActivities(lang);
-  renderAchievements(lang);
-  renderArticles(lang);
-  renderClosingContact(lang);
 }

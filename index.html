@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/main.css">
 
 <script type="application/ld+json">
 {
@@ -40,7 +40,7 @@
 
 <header class="nav">
   <div class="container nav-inner">
-    <a href="#top" class="nav-brand">PTG</a>
+    <a href="/" class="nav-brand">PTG</a>
     <nav aria-label="Primary">
       <ul class="nav-links" id="nav-links-desktop"></ul>
     </nav>
@@ -56,10 +56,9 @@
   </div>
 </header>
 
-<main id="top">
-  <div id="main-content"></div>
+<main id="main-content">
 
-  <!-- Section 01 — Hero -->
+  <!-- Hero -->
   <section class="hero">
     <div class="container hero-grid">
       <div class="portrait-frame" id="portrait-frame">
@@ -76,15 +75,15 @@
           Một Business Analyst tập trung vào việc kết nối bài toán kinh doanh, dữ liệu, quy trình và công nghệ để tạo ra các giải pháp có thể triển khai trong thực tế — từ phân tích yêu cầu đến tính năng chạy thật trên production.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects" data-vi="Xem dự án nổi bật" data-en="View selected work">Xem dự án nổi bật</a>
-          <a class="btn btn-outline" id="hero-cta-secondary" href="#contact" data-vi="Liên hệ để nhận CV" data-en="Contact for CV">Liên hệ để nhận CV</a>
+          <a class="btn btn-primary" href="/projects.html" data-vi="Xem dự án nổi bật" data-en="View selected work">Xem dự án nổi bật</a>
+          <a class="btn btn-outline" id="hero-cta-secondary" href="/contact.html" data-vi="Liên hệ để nhận CV" data-en="Contact for CV">Liên hệ để nhận CV</a>
         </div>
         <div class="hero-socials" id="hero-socials"></div>
       </div>
     </div>
   </section>
 
-  <!-- Section 05 — Proof / highlight strip -->
+  <!-- Proof / highlight strip -->
   <section class="highlight-strip" aria-label="Highlights">
     <div class="container">
       <div class="highlight-grid" id="highlight-grid"></div>
@@ -92,126 +91,85 @@
     </div>
   </section>
 
-  <!-- Giới thiệu -->
-  <section id="about" class="section">
+  <!-- About teaser -->
+  <section class="section">
     <div class="container">
       <div class="section-head">
         <p class="section-eyebrow" data-vi="Giới thiệu" data-en="About">Giới thiệu</p>
         <h2 class="section-title" data-vi="Kết nối bài toán kinh doanh với hệ thống thật" data-en="Connecting business problems with real systems">Kết nối bài toán kinh doanh với hệ thống thật</h2>
       </div>
-      <p class="about-text" data-vi="Mình là Business Analyst tại Datapot — công ty công nghệ vận hành cho các trung tâm đào tạo nghề. Công việc trải dài từ phân tích nghiệp vụ, thiết kế quy trình, đến trực tiếp xây dựng tính năng trên hệ thống thật: từ Learner/Trainer Portal, tích hợp Microsoft Teams/Graph cho điểm danh tự động, đến pipeline redirect và page-builder cho website tuyển sinh." data-en="I'm a Business Analyst at Datapot — a technology company that operates platforms for vocational training centers. My work spans business analysis, process design, and hands-on feature development on live systems: the Learner/Trainer Portal, Microsoft Teams/Graph integration for automated attendance, and the redirect pipeline and page-builder behind the admissions website.">
-        Mình là Business Analyst tại Datapot — công ty công nghệ vận hành cho các trung tâm đào tạo nghề. Công việc trải dài từ phân tích nghiệp vụ, thiết kế quy trình, đến trực tiếp xây dựng tính năng trên hệ thống thật: từ Learner/Trainer Portal, tích hợp Microsoft Teams/Graph cho điểm danh tự động, đến pipeline redirect và page-builder cho website tuyển sinh.
+      <p class="about-text" data-vi="Mình là Business Analyst tại Datapot — công ty công nghệ vận hành cho các trung tâm đào tạo nghề. Công việc trải dài từ phân tích nghiệp vụ, thiết kế quy trình, đến trực tiếp xây dựng tính năng trên hệ thống thật." data-en="I'm a Business Analyst at Datapot — a technology company that operates platforms for vocational training centers. My work spans business analysis, process design, and hands-on feature development on live systems.">
+        Mình là Business Analyst tại Datapot — công ty công nghệ vận hành cho các trung tâm đào tạo nghề. Công việc trải dài từ phân tích nghiệp vụ, thiết kế quy trình, đến trực tiếp xây dựng tính năng trên hệ thống thật.
       </p>
-      <p class="about-text" data-vi="Mình kết hợp tư duy phân tích nghiệp vụ với khả năng đọc-hiểu và chỉnh sửa code, làm việc cùng công cụ AI-assisted development để rút ngắn khoảng cách giữa 'hiểu vấn đề' và 'vấn đề được giải quyết trên production'." data-en="I combine business-analysis thinking with the ability to read and modify code, working alongside AI-assisted development tools to shorten the distance between 'understanding the problem' and 'the problem being solved in production'.">
-        Mình kết hợp tư duy phân tích nghiệp vụ với khả năng đọc-hiểu và chỉnh sửa code, làm việc cùng công cụ AI-assisted development để rút ngắn khoảng cách giữa "hiểu vấn đề" và "vấn đề được giải quyết trên production".
-      </p>
-
-      <div style="margin-top: 48px;">
-        <p class="section-eyebrow" data-vi="Hành trình của mình" data-en="My journey">Hành trình của mình</p>
-        <ol class="journey-list" id="journey-list"></ol>
+      <div class="section-cta">
+        <a href="/about.html" data-vi="Tìm hiểu thêm về mình" data-en="More about me">Tìm hiểu thêm về mình →</a>
       </div>
     </div>
   </section>
 
-  <!-- Chuyên môn -->
-  <section id="expertise" class="section section-alt">
+  <!-- Expertise teaser -->
+  <section class="section section-alt">
     <div class="container">
       <div class="section-head">
         <p class="section-eyebrow" data-vi="Chuyên môn" data-en="Expertise">Chuyên môn</p>
         <h2 class="section-title" data-vi="Bốn mảng công việc chính" data-en="Four core areas of work">Bốn mảng công việc chính</h2>
       </div>
-      <div class="expertise-grid" id="expertise-grid"></div>
+      <div class="teaser-tags" id="expertise-teaser"></div>
+      <div class="section-cta">
+        <a href="/expertise.html" data-vi="Xem đầy đủ chuyên môn" data-en="See full expertise">Xem đầy đủ chuyên môn →</a>
+      </div>
     </div>
   </section>
 
-  <!-- Dự án -->
-  <section id="projects" class="section">
+  <!-- Selected work teaser -->
+  <section class="section">
     <div class="container">
       <div class="section-head">
         <p class="section-eyebrow" data-vi="Dự án" data-en="Projects">Dự án</p>
         <h2 class="section-title" data-vi="Dự án nổi bật" data-en="Selected work">Dự án nổi bật</h2>
-        <p class="section-desc" data-vi="Mỗi dự án dưới đây là một case study ngắn: bài toán, vai trò, những gì mình đã làm và kết quả." data-en="Each project below is a short case study: the problem, my role, what I did, and the outcome.">Mỗi dự án dưới đây là một case study ngắn: bài toán, vai trò, những gì mình đã làm và kết quả.</p>
       </div>
-      <div id="case-study-list"></div>
-
-      <div style="margin-top: 40px;">
-        <p class="section-eyebrow" data-vi="Dự án khác" data-en="Other work">Dự án khác</p>
-        <div class="work-grid" id="other-work-list"></div>
+      <div id="case-study-teaser-list"></div>
+      <div class="section-cta">
+        <a href="/projects.html" data-vi="Xem tất cả dự án" data-en="See all projects">Xem tất cả dự án →</a>
       </div>
     </div>
   </section>
 
-  <!-- Học tập -->
-  <section id="education" class="section section-alt">
+  <!-- Quick links: Education / Activities / Achievements -->
+  <section class="section section-alt">
     <div class="container">
       <div class="section-head">
-        <p class="section-eyebrow" data-vi="Học tập" data-en="Education">Học tập</p>
-        <h2 class="section-title" data-vi="Nền tảng học thuật" data-en="Academic background">Nền tảng học thuật</h2>
+        <p class="section-eyebrow" data-vi="Thêm về mình" data-en="More about me">Thêm về mình</p>
+        <h2 class="section-title" data-vi="Học tập, hoạt động & thành tích" data-en="Education, activities & achievements">Học tập, hoạt động &amp; thành tích</h2>
       </div>
-      <div class="education-card reveal">
-        <div class="education-main">
-          <h3 id="edu-university"></h3>
-          <p class="education-major" id="edu-major"></p>
-          <p class="education-time" id="edu-time"></p>
-          <p class="education-gpa" id="edu-gpa"></p>
-        </div>
-        <div>
-          <div class="education-side">
-            <h4 data-vi="Môn học liên quan" data-en="Relevant coursework">Môn học liên quan</h4>
-            <ul class="chip-list" id="edu-coursework"></ul>
-          </div>
-          <div class="education-side">
-            <h4 data-vi="Điểm nổi bật học thuật" data-en="Academic highlights">Điểm nổi bật học thuật</h4>
-            <div id="edu-highlights"></div>
-          </div>
-        </div>
+      <div class="quick-links-grid">
+        <a class="quick-link-card reveal" href="/education.html">
+          <h3 data-vi="Học tập" data-en="Education">Học tập</h3>
+          <p id="education-teaser-text"></p>
+          <span class="quick-link-cta" data-vi="Xem chi tiết" data-en="See details">Xem chi tiết →</span>
+        </a>
+        <a class="quick-link-card reveal" href="/activities.html">
+          <h3 data-vi="Hoạt động" data-en="Activities">Hoạt động</h3>
+          <p id="activities-teaser-text"></p>
+          <span class="quick-link-cta" data-vi="Xem chi tiết" data-en="See details">Xem chi tiết →</span>
+        </a>
+        <a class="quick-link-card reveal" href="/achievements.html">
+          <h3 data-vi="Thành tích" data-en="Achievements">Thành tích</h3>
+          <p id="achievements-teaser-text"></p>
+          <span class="quick-link-cta" data-vi="Xem chi tiết" data-en="See details">Xem chi tiết →</span>
+        </a>
       </div>
-    </div>
-  </section>
-
-  <!-- Hoạt động -->
-  <section id="activities" class="section">
-    <div class="container">
-      <div class="section-head">
-        <p class="section-eyebrow" data-vi="Hoạt động" data-en="Activities">Hoạt động</p>
-        <h2 class="section-title" data-vi="Hoạt động thời đại học & cộng đồng" data-en="University & community activities">Hoạt động thời đại học &amp; cộng đồng</h2>
-        <p class="section-desc" id="activities-note"></p>
-      </div>
-      <div class="activity-grid" id="activity-grid"></div>
-    </div>
-  </section>
-
-  <!-- Thành tích -->
-  <section id="achievements" class="section section-alt">
-    <div class="container">
-      <div class="section-head">
-        <p class="section-eyebrow" data-vi="Thành tích" data-en="Achievements">Thành tích</p>
-        <h2 class="section-title" data-vi="Thành tích & chứng nhận" data-en="Achievements & certifications">Thành tích &amp; chứng nhận</h2>
-      </div>
-      <div class="achievement-grid" id="achievement-grid"></div>
-    </div>
-  </section>
-
-  <!-- Bài viết / nghiên cứu / học hỏi -->
-  <section id="articles" class="section">
-    <div class="container">
-      <div class="section-head">
-        <p class="section-eyebrow" data-vi="Học hỏi" data-en="Learning">Học hỏi</p>
-        <h2 class="section-title" data-vi="Bài viết / Nghiên cứu / Học hỏi" data-en="Writing / Research / Learning">Bài viết / Nghiên cứu / Học hỏi</h2>
-      </div>
-      <div class="article-grid" id="article-grid"></div>
     </div>
   </section>
 
   <!-- Closing CTA -->
-  <section id="contact" class="closing-cta section-alt">
+  <section class="closing-cta">
     <div class="container">
       <h2 data-vi="Sẵn sàng cho cơ hội mới, học bổng & hợp tác." data-en="Open to opportunities, scholarships & collaborations.">Sẵn sàng cho cơ hội mới, học bổng &amp; hợp tác.</h2>
       <p data-vi="Mình luôn sẵn sàng cho những cơ hội mới để học hỏi, phát triển và tạo ra giá trị tích cực cùng nhau." data-en="I'm always open to new opportunities to learn, grow and create positive value together.">Mình luôn sẵn sàng cho những cơ hội mới để học hỏi, phát triển và tạo ra giá trị tích cực cùng nhau.</p>
       <div class="closing-actions">
-        <a class="btn btn-primary" id="contact-cta-primary" href="#" data-vi="Liên hệ với mình" data-en="Get in touch">Liên hệ với mình</a>
+        <a class="btn btn-primary" href="/contact.html" data-vi="Liên hệ với mình" data-en="Get in touch">Liên hệ với mình</a>
       </div>
-      <div class="closing-socials" id="closing-socials"></div>
     </div>
   </section>
 </main>
@@ -231,6 +189,19 @@
   </div>
 </footer>
 
-<script type="module" src="assets/js/main.js"></script>
+<script type="module">
+  import { bootstrap } from "/assets/js/common.js";
+  import { renderHero, renderHighlights, renderExpertiseTeaser, renderCaseStudyTeasers, renderEducationTeaser, renderActivitiesTeaser, renderAchievementsTeaser } from "/assets/js/render.js";
+
+  bootstrap((lang) => {
+    renderHero(lang);
+    renderHighlights(lang);
+    renderExpertiseTeaser(lang);
+    renderCaseStudyTeasers(lang, 2);
+    renderEducationTeaser(lang);
+    renderActivitiesTeaser(lang);
+    renderAchievementsTeaser(lang);
+  });
+</script>
 </body>
 </html>

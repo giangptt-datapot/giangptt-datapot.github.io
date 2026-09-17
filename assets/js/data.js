@@ -9,11 +9,11 @@ export const profile = {
   initials: "PTG",
   role: { vi: "Business Analyst", en: "Business Analyst" },
   company: "Datapot",
-  portraitUrl: "assets/img/portrait.jpg",
+  portraitUrl: "/assets/img/portrait.jpg",
   email: "thuygiang0902.nb@gmail.com",
   linkedin: "https://linkedin.com/in/thuygiang0902",
   github: "https://github.com/giangptt-datapot",
-  cvUrl: "assets/cv/CV-Pham-Thi-Thuy-Giang.pdf",
+  cvUrl: "/assets/cv/CV-Pham-Thi-Thuy-Giang.pdf",
 };
 
 export const highlights = [
@@ -387,11 +387,11 @@ export const articles = [
 ];
 
 export const navLinks = [
-  { href: "#about", vi: "Giới thiệu", en: "About" },
-  { href: "#expertise", vi: "Chuyên môn", en: "Expertise" },
-  { href: "#projects", vi: "Dự án", en: "Projects" },
-  { href: "#education", vi: "Học tập", en: "Education" },
-  { href: "#activities", vi: "Hoạt động", en: "Activities" },
-  { href: "#achievements", vi: "Thành tích", en: "Achievements" },
-  { href: "#contact", vi: "Liên hệ", en: "Contact" },
+  { key: "about", href: "/about.html", vi: "Giới thiệu", en: "About" },
+  { key: "expertise", href: "/expertise.html", vi: "Chuyên môn", en: "Expertise" },
+  { key: "projects", href: "/projects.html", vi: "Dự án", en: "Projects" },
+  { key: "education", href: "/education.html", vi: "Học tập", en: "Education" },
+  { key: "activities", href: "/activities.html", vi: "Hoạt động", en: "Activities" },
+  { key: "achievements", href: "/achievements.html", vi: "Thành tích", en: "Achievements" },
+  { key: "contact", href: "/contact.html", vi: "Liên hệ", en: "Contact" },
 ];

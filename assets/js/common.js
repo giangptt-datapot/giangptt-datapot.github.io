@@ -1,5 +1,5 @@
 import { getLang, setLang, applyStaticI18n } from "./i18n.js";
-import { renderAll } from "./render.js";
+import { renderChrome } from "./render.js";
 
 function initYear() {
   const yearEl = document.getElementById("year");
@@ -22,27 +22,6 @@ function initNavToggle() {
       navToggle.setAttribute("aria-expanded", "false");
     }
   });
-}
-
-function initScrollSpy() {
-  const sections = Array.from(document.querySelectorAll("main section[id]"));
-  const links = Array.from(document.querySelectorAll(".nav-links a"));
-  if (!sections.length || !links.length || !("IntersectionObserver" in window)) return;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const id = entry.target.getAttribute("id");
-        links.forEach((link) => {
-          link.classList.toggle("is-active", link.getAttribute("href") === `#${id}`);
-        });
-      });
-    },
-    { rootMargin: "-40% 0px -55% 0px" }
-  );
-
-  sections.forEach((section) => observer.observe(section));
 }
 
 function initReveal() {
@@ -76,13 +55,21 @@ function refreshReveal() {
   requestAnimationFrame(initReveal);
 }
 
-function initLangSwitch() {
+/**
+ * Shared bootstrap for every page: footer year, mobile nav, language switch,
+ * chrome (nav/footer), and progressive-enhancement scroll reveal.
+ * `renderContent(lang)`, if given, renders the page's own data-driven sections.
+ */
+export function bootstrap(renderContent) {
+  initYear();
+  initNavToggle();
+
   const buttons = document.querySelectorAll("[data-lang-option]");
-  if (!buttons.length) return;
 
   function applyLang(lang) {
     applyStaticI18n(lang);
-    renderAll(lang);
+    renderChrome(lang);
+    if (renderContent) renderContent(lang);
     buttons.forEach((btn) => {
       btn.setAttribute("aria-pressed", String(btn.getAttribute("data-lang-option") === lang));
     });
@@ -97,13 +84,5 @@ function initLangSwitch() {
     });
   });
 
-  applyLang(getLang());
+  document.addEventListener("DOMContentLoaded", () => applyLang(getLang()));
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  initYear();
-  initNavToggle();
-  initLangSwitch();
-  initScrollSpy();
-  initReveal();
-});
